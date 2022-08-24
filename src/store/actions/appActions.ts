@@ -2,7 +2,12 @@ import { createAction } from '@reduxjs/toolkit';
 
 const fetchAppConfigAsync = createAction(
   'app/fetchAppConfigAsync',
-  ({ callback = () => {}, showLoading = true } = {}) => ({ payload: { callback, showLoading } })
+  ({
+    callback = () => {
+      /*  */
+    },
+    showLoading = true,
+  } = {}) => ({ payload: { callback, showLoading } })
 );
 
 const setAppConfig = createAction('app/setAppConfig');
