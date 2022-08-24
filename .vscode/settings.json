@@ -1,0 +1,21 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true,
+    "source.sortMembers": true
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "prettier.printWidth": 100,
+  "typescript.format.insertSpaceAfterConstructor": true,
+  "eslint.quiet": true,
+  "eslint.format.enable": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.eol": "\n",
+  "sonarlint.rules": {
+    "javascript:S1440": {
+      "level": "on"
+    }
+  },
+  "eslint.validate": ["javascript", "typescript"]
+}

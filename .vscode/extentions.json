@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "flowtype.flow-for-vscode",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "henry-li.vscode-import-formatter",
+    "oderwat.indent-rainbow",
+    "sonarsource.sonarlint-vscode",
+    "steoates.autoimport"
+  ]
+}
