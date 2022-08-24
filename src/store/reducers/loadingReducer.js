@@ -1,23 +1,18 @@
 import { createReducer } from '@reduxjs/toolkit';
 import LoadingActions from '../actions/loadingActions';
 
-const initialState = { activeLoadings: {}, loading: false };
+const initialState = { loading: false };
 
 export default createReducer(initialState, (builder) =>
   builder
-    .addCase(LoadingActions.start, (state, action) => {
-      const { key, opacity } = action.payload;
+    .addCase(LoadingActions.start, (state) => {
       return {
         ...state,
-        actives: { ...state.activeLoadings, [key]: action },
         loading: true,
-        opacity,
       };
     })
-    .addCase(LoadingActions.stop, (state, action) => {
-      delete state.activeLoadings[action.payload.key];
-
-      state.loading = !!Object.keys(state.activeLoadings).length;
+    .addCase(LoadingActions.stop, (state) => {
+      state.loading = false;
     })
     .addCase(LoadingActions.clear, () => ({}))
 );

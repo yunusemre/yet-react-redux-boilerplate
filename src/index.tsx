@@ -1,8 +1,9 @@
+import { ThemeProvider } from 'react-bootstrap';
 import ReactDOM from 'react-dom';
 import { I18nextProvider } from 'react-i18next';
 import { Provider as ReduxProvider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import App from './app';
+import ConnectedAppContainer from './app';
 import './index.scss';
 import { initAPIInterceptor } from './interceptors';
 import reportWebVitals from './reportWebVitals';
@@ -16,7 +17,9 @@ ReactDOM.render(
   <ReduxProvider store={store}>
     <BrowserRouter>
       <I18nextProvider i18n={i18n}>
-        <App />
+        <ThemeProvider>
+          <ConnectedAppContainer />
+        </ThemeProvider>
       </I18nextProvider>
     </BrowserRouter>
   </ReduxProvider>,

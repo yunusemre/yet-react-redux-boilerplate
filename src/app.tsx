@@ -1,25 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { userApi } from './api/user.api';
+import Layout from './layout';
+import { connectToRedux } from './store/reduxConnect';
 
-function App() {
-  const [data, setData] = useState<any>([]);
-  const { t } = useTranslation();
+const App = () => {
+  return <Layout />;
+};
 
-  useEffect(() => {
-    userApi().then((response: any) => setData(response.result));
-  }, []);
+const ConnectedAppContainer = connectToRedux({
+  component: App,
+  stateProps: () => ({}),
+  dispatchProps: {},
+});
 
-  return (
-    <div className="App">
-      {data.map((result: any, index: number) => (
-        <p key={index}>
-          <span>{result.name}</span>
-          <span>{result.email}</span>
-        </p>
-      ))}
-    </div>
-  );
-}
-
-export default App;
+export default ConnectedAppContainer;
