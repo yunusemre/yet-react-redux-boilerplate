@@ -1,6 +1,6 @@
 FROM node:14
-WORKDIR /app
-COPY . .
-RUN yarn cache clean
-RUN yarn install
+WORKDIR /app .
+COPY /build .
+RUN npm cache clean
+RUN npm install
 EXPOSE 3000
