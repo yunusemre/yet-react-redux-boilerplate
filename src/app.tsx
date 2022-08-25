@@ -1,14 +1,12 @@
-import Layout from './layout';
-import { connectToRedux } from './store/reduxConnect';
+import Layout from './layout'
+import { connectToRedux } from './store/reduxConnect'
 
-const App = () => {
-  return <Layout />;
-};
+const App = (): any => <Layout />
 
 const ConnectedAppContainer = connectToRedux({
   component: App,
   stateProps: () => ({}),
-  dispatchProps: {},
-});
+  dispatchProps: {}
+})
 
-export default ConnectedAppContainer;
+export default ConnectedAppContainer

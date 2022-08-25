@@ -1,12 +1,10 @@
 const ENV: any = {
   development: {
-    apiUrl: 'http://localhost:3001',
+    apiUrl: 'http://localhost:3001'
   },
   production: {
-    apiUrl: '/',
-  },
-};
+    apiUrl: '/'
+  }
+}
 
-export const getEnvVars = () => {
-  return ENV[process.env.NODE_ENV];
-};
+export const getEnvVars = (): void => ENV[process.env.NODE_ENV]

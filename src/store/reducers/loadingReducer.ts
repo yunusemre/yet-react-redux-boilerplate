@@ -1,18 +1,18 @@
-import { createReducer } from '@reduxjs/toolkit';
-import LoadingActions from '../actions/loadingActions';
+import { createReducer } from '@reduxjs/toolkit'
+import LoadingActions from '../actions/loadingActions'
 
-const initialState = { loading: false };
+const initialState = { loading: false }
 
 export default createReducer(initialState, (builder: any) =>
   builder
     .addCase(LoadingActions.start, (state: any) => {
       return {
         ...state,
-        loading: true,
-      };
+        loading: true
+      }
     })
     .addCase(LoadingActions.stop, (state: any) => {
-      state.loading = false;
+      state.loading = false
     })
     .addCase(LoadingActions.clear, () => ({}))
-);
+)
