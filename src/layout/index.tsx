@@ -5,6 +5,6 @@ const Layout = (): any => {
       <div>Content</div>
       <footer>Footer</footer>
     </>
-  )
-}
-export default Layout
+  );
+};
+export default Layout;

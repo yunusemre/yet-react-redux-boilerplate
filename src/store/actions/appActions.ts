@@ -1,4 +1,4 @@
-import { createAction } from '@reduxjs/toolkit'
+import { createAction } from '@reduxjs/toolkit';
 
 const fetchAppConfigAsync = createAction(
   'app/fetchAppConfigAsync',
@@ -6,15 +6,15 @@ const fetchAppConfigAsync = createAction(
     callback = () => {
       /*  */
     },
-    showLoading = true
+    showLoading = true,
   } = {}) => ({ payload: { callback, showLoading } })
-)
+);
 
-const setAppConfig = createAction('app/setAppConfig')
-const logoutAsync = createAction('app/logoutAsync')
+const setAppConfig = createAction('app/setAppConfig');
+const logoutAsync = createAction('app/logoutAsync');
 
 export default {
   fetchAppConfigAsync,
   setAppConfig,
-  logoutAsync
-}
+  logoutAsync,
+};
