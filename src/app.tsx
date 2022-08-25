@@ -1,12 +1,17 @@
-import Layout from './layout'
-import { connectToRedux } from './store/reduxConnect'
+import { Suspense } from 'react';
+import ProjectRouter from './router';
+import { connectToRedux } from './store/reduxConnect';
 
-const App = (): any => <Layout />
+const App = (): any => (
+  <Suspense fallback={'loading'}>
+    <ProjectRouter />
+  </Suspense>
+);
 
 const ConnectedAppContainer = connectToRedux({
   component: App,
   stateProps: () => ({}),
-  dispatchProps: {}
-})
+  dispatchProps: {},
+});
 
-export default ConnectedAppContainer
+export default ConnectedAppContainer;
