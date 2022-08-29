@@ -1,5 +1,5 @@
 import { CssBaseline } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
+import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 import ReactDOM from 'react-dom';
 import { I18nextProvider } from 'react-i18next';
 import { Provider as ReduxProvider } from 'react-redux';
@@ -20,10 +20,12 @@ ReactDOM.render(
     <PersistGate persistor={persistor}>
       <BrowserRouter>
         <I18nextProvider i18n={i18n}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <ConnectedAppContainer />
-          </ThemeProvider>
+          <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <ConnectedAppContainer />
+            </ThemeProvider>
+          </StyledEngineProvider>
         </I18nextProvider>
       </BrowserRouter>
     </PersistGate>
