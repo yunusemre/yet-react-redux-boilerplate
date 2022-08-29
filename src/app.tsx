@@ -1,9 +1,10 @@
 import { Suspense } from 'react';
+import Loader from './components/Loader';
 import ProjectRouter from './router';
 import { connectToRedux } from './store/reduxConnect';
 
 const App = (): any => (
-  <Suspense fallback={'loading'}>
+  <Suspense fallback={<Loader />}>
     <ProjectRouter />
   </Suspense>
 );

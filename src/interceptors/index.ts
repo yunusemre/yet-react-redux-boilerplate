@@ -1,4 +1,3 @@
-import { toast } from 'react-toastify';
 import api from '../api';
 import LoadingActions from '../store/actions/loadingActions';
 
@@ -36,7 +35,7 @@ export const initAPIInterceptor = (store: any): void => {
   );
 };
 
-const showError = ({ error = {}, status }: { error: any, status: number }): void => {
+const showError = ({ error = {}, status }: any) => {
   let message = '';
   let title = '';
 
@@ -70,13 +69,15 @@ const showError = ({ error = {}, status }: { error: any, status: number }): void
     }
   }
 
-  toast(`${title} - ${message}`, {
-    position: 'top-right',
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-  });
+  // toast(`${title} - ${message}`, {
+  //   position: 'top-right',
+  //   autoClose: 5000,
+  //   hideProgressBar: false,
+  //   closeOnClick: true,
+  //   pauseOnHover: true,
+  //   draggable: true,
+  //   progress: undefined,
+  // });
+
+  return { message: message, title: title };
 };

@@ -1,5 +1,3 @@
-import './home.scss';
-
-const Home = () => <div>home</div>;
+const Home = () => <div>Kolay gelsin</div>;
 
 export default Home;
