@@ -1,5 +1,5 @@
 import api from '../api';
-import LoadingActions from '../store/actions/loadingActions';
+import { clear } from '../store/features/loadingSlice';
 
 export const initAPIInterceptor = (store: any): void => {
   api.interceptors.request.use(
@@ -21,7 +21,7 @@ export const initAPIInterceptor = (store: any): void => {
   api.interceptors.response.use(
     (response: any) => response.data,
     async (error) => {
-      store.dispatch(LoadingActions.clear());
+      store.dispatch(clear());
       const errorRes = error.response;
       if (errorRes) {
         showError({
