@@ -20,11 +20,10 @@ export const initAPIInterceptor = (store: any): void => {
   API.interceptors.response.use(
     (response: any) => response,
     async (error) => {
-      // store.dispatch(stop());
       const errorRes = error.response;
       if (errorRes) {
         showError({
-          error: errorRes.data.error || {},
+          error: errorRes.data.error || errorRes.statusText || {},
           status: errorRes.status,
         });
       }

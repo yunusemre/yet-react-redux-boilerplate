@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { fetchUser } from './appService';
 
 const initialState = {
   emailVerified: false,
@@ -20,11 +21,19 @@ const appSlice = createSlice({
     update: (state) => {
       state.isAuthenticated = !state.isAuthenticated;
     },
-    setTodoList: (state, action: PayloadAction<any>) => {
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchUser.pending, (state) => {
+      state.loading = !state.loading;
+    });
+    builder.addCase(fetchUser.fulfilled, (state, action: PayloadAction<any>) => {
       state.todoList = action.payload;
-    },
+    });
+    builder.addCase(fetchUser.rejected, (state) => {
+      state.loading = false;
+    });
   },
 });
 
-export const { update, setTodoList } = appSlice.actions;
+export const { update } = appSlice.actions;
 export default appSlice.reducer;
