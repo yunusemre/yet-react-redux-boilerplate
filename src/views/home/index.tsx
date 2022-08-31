@@ -5,11 +5,18 @@ const Home = () => {
   const appState: any = useSelector((state: RootState) => state.app);
 
   return (
-    <pre>
-      {appState.todoList.result.map((result: any) => (
-        <p key={result.name}>{result.name}</p>
-      ))}
-    </pre>
+    <>
+      <ul>
+        {appState.todoList.result.map((result: any) => (
+          <li key={result.name}>
+            <p>Name: {result.name}</p>
+            <p>E-mail: {result.email}</p>
+            <p>Website: {result.website}</p>
+          </li>
+        ))}
+      </ul>
+      Total Count {appState.todoList.totalCount}
+    </>
   );
 };
 
