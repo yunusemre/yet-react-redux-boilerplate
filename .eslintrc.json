@@ -22,7 +22,7 @@
   "rules": {
     "semi": "off",
     "comma-dangle": "off",
-    "@typescript-eslint/semi": "warn",
+    "@typescript-eslint/semi": [1, "always"],
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-floating-promises": "off",
