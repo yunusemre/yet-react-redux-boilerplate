@@ -2,9 +2,15 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store/configureStore';
 
 const Home = () => {
-  const rootState: any = useSelector((state: RootState) => state);
+  const appState: any = useSelector((state: RootState) => state.app);
 
-  return <div>{JSON.stringify(rootState)}</div>;
+  return (
+    <pre>
+      {appState.todoList.result.map((result: any) => (
+        <p key={result.name}>{result.name}</p>
+      ))}
+    </pre>
+  );
 };
 
 export default Home;

@@ -1,8 +1,7 @@
-import api from '../api';
-import { clear } from '../store/features/loadingSlice';
+import API from '../api';
 
 export const initAPIInterceptor = (store: any): void => {
-  api.interceptors.request.use(
+  API.interceptors.request.use(
     async (request: any) => {
       const { token } = store.getState();
 
@@ -18,10 +17,10 @@ export const initAPIInterceptor = (store: any): void => {
     (error) => new Error(error)
   );
 
-  api.interceptors.response.use(
-    (response: any) => response.data,
+  API.interceptors.response.use(
+    (response: any) => response,
     async (error) => {
-      store.dispatch(clear());
+      // store.dispatch(stop());
       const errorRes = error.response;
       if (errorRes) {
         showError({
