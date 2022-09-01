@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from 'react';
-import Loader from './components/Loader';
+import Loader from './components/loader';
 import ProjectRouter from './router';
 import { fetchUser } from './store/features/appService';
 import { useAppDispatch } from './store/hooks';
