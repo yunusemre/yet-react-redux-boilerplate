@@ -2,8 +2,10 @@ import { Button, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useAppSelector } from '../../store/hooks';
 
 const Home = () => {
+  const todoList: any = useAppSelector((state) => state.app.todoList);
   const validationSchema = yup.object({
     email: yup.string().email('Enter a valid email').required('Email is required'),
     password: yup
@@ -25,6 +27,7 @@ const Home = () => {
 
   return (
     <Box>
+      {JSON.stringify(todoList.result[0])}
       <form onSubmit={formik.handleSubmit}>
         <TextField
           fullWidth
