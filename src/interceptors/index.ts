@@ -18,7 +18,7 @@ export const initAPIInterceptor = (store: any): void => {
   );
 
   API.interceptors.response.use(
-    (response: any) => response,
+    (response: any) => response.data,
     async (error) => {
       const errorRes = error.response;
       if (errorRes) {
