@@ -77,5 +77,5 @@ const showError = ({ error = {}, status }: any) => {
   //   progress: undefined,
   // });
 
-  return { message: message, title: title };
+  return { message, title };
 };
