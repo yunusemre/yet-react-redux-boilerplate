@@ -35,6 +35,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --quiet --fix",
     "prettier": "prettier --write  \"src/**/*.{ts,tsx,html,css,scss}\"",
     "linter": "npm run prettier && npm run lint"
@@ -74,6 +75,7 @@
     "lint-staged": "^13.0.3",
     "node-sass": "^7.0.1",
     "prettier": "^2.5.1",
+    "source-map-explorer": "^2.5.2",
     "typescript": "^4.7.4"
   },
   "lint-staged": {
