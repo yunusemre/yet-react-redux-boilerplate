@@ -2,7 +2,7 @@ import './index.scss';
 
 import { CssBaseline } from '@mui/material';
 import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { I18nextProvider } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -16,7 +16,10 @@ import theme from './utils/theme';
 
 initAPIInterceptor(store);
 
-ReactDOM.render(
+const container = document.getElementById('kolaygelsin')!;
+const root = createRoot(container);
+
+root.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
       <BrowserRouter>
@@ -30,8 +33,7 @@ ReactDOM.render(
         </I18nextProvider>
       </BrowserRouter>
     </PersistGate>
-  </Provider>,
-  document.getElementById('kolaygelsin')
+  </Provider>
 );
 
 reportWebVitals();
