@@ -1,0 +1,13 @@
+.sidebar {
+  width: 300px;
+  height: 100vh;
+  &-container {
+    height: calc(100vh - 60px);
+    background-color: wheat;
+    overflow: auto;
+  }
+  &-footer {
+    background-color: red;
+    height: 60px;
+  }
+}

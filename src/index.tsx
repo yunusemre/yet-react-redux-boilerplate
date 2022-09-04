@@ -1,7 +1,6 @@
 import './index.scss';
 
-import { CssBaseline } from '@mui/material';
-import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from 'react-bootstrap';
 import { createRoot } from 'react-dom/client';
 import { I18nextProvider } from 'react-i18next';
 import { Provider } from 'react-redux';
@@ -12,7 +11,6 @@ import { initAPIInterceptor } from './interceptors';
 import reportWebVitals from './reportWebVitals';
 import { persistor, store } from './store/configureStore';
 import i18n from './translation/config';
-import theme from './utils/theme';
 
 initAPIInterceptor(store);
 
@@ -24,12 +22,12 @@ root.render(
     <PersistGate persistor={persistor}>
       <BrowserRouter>
         <I18nextProvider i18n={i18n}>
-          <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              <ConnectedAppContainer />
-            </ThemeProvider>
-          </StyledEngineProvider>
+          <ThemeProvider
+            breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+            minBreakpoint="xxs"
+          >
+            <ConnectedAppContainer />
+          </ThemeProvider>
         </I18nextProvider>
       </BrowserRouter>
     </PersistGate>
