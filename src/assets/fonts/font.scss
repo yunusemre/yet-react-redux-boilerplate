@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'NunitoSans-Regular';
+  src: url('NunitoSans-Regular.svg#NunitoSans-Regular') format('svg'),
+       url('NunitoSans-Regular.ttf') format('truetype'),
+       url('NunitoSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NunitoSans';
+  src: url('NunitoSans.eot');
+  src: url('NunitoSans.eot?#iefix') format('embedded-opentype'),
+       url('NunitoSans.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NunitoSans-Bold';
+  src: url('NunitoSans-Bold.eot');
+  src: url('NunitoSans-Bold.eot?#iefix') format('embedded-opentype'),
+       url('NunitoSans-Bold.svg#NunitoSans-Bold') format('svg'),
+       url('NunitoSans-Bold.ttf') format('truetype'),
+       url('NunitoSans-Bold.woff') format('woff'),
+       url('NunitoSans-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
