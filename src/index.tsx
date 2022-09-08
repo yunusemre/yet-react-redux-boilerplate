@@ -1,4 +1,4 @@
-import './index.scss';
+import './assets/scss/index.scss';
 
 import { ThemeProvider } from 'react-bootstrap';
 import { createRoot } from 'react-dom/client';

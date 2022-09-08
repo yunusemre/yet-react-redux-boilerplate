@@ -1,21 +1,50 @@
 @import '~bootstrap/scss/bootstrap';
+@import './packages';
 
 :root {
+  --primary: #3baf29;
   --font-family: sans-serif;
   --body-font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
     'Noto Sans', 'Liberation Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
-  --body-font-size: 16px;
+  --body-font-size: 13px;
   --body-font-weight: 400;
   --body-line-height: 1.5;
   --body-color: #f8f8f8;
+  --menu-color: #333333;
 }
 
 body {
   margin: 0;
   padding: 0;
+  font-size: var(--body-font-size);
   background-color: var(--body-color);
   font-family: var(--body-font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #268317;
+}
+
+.c-pointer {
+  cursor: pointer;
+}
+
+.page-container {
+  width: 100%;
+  background: #f8f8f8;
+  height: 100vh;
+  padding: 10px 0 0 16px;
 }

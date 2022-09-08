@@ -21,6 +21,7 @@
   "plugins": ["react"],
   "rules": {
     "semi": "off",
+    "multiline-ternary": "off",
     "comma-dangle": "off",
     "@typescript-eslint/semi": [1, "always"],
     "react/react-in-jsx-scope": "off",
@@ -29,6 +30,7 @@
     "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/promise-function-async": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/consistent-type-assertions": "off"
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/member-delimiter-style": "off"
   }
 }

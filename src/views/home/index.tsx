@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { useAppSelector } from '../../store/hooks';
 
 const Home = () => {
-  const todoList: any = useAppSelector((state) => state.app.todoList);
+  const app: any = useAppSelector((state) => state.app);
   const validationSchema = yup.object({
     firstName: yup.string().max(15, 'Must be 15 characters or less').required('Required'),
     lastName: yup.string().max(20, 'Must be 20 characters or less').required('Required'),
