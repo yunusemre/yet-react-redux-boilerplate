@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
 import { NavLink } from 'react-router-dom';
-import { useAppSelector } from '../../store/hooks';
+import { openMenu } from '../../store/features/appSlice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 interface NavLinkMenuType {
   url: string;
@@ -20,11 +21,14 @@ export const NavLinkMenu = ({
   subMenu = [],
   isOpen,
 }: NavLinkMenuType) => {
-  const [open, setOpen] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
   const menuState = useAppSelector((state) => state.app.menuOpen);
+  const [open, setOpen] = useState<boolean>(false);
+
   useEffect(() => {
     if (!menuState) setOpen(menuState);
   }, [menuState]);
+
   return (
     <li className="position-relative">
       {url !== '' && subMenu.length === 0 ? (
@@ -40,7 +44,13 @@ export const NavLinkMenu = ({
           </span>
         </NavLink>
       ) : (
-        <a className="nav_link c-pointer d-block" onClick={() => setOpen(!open)}>
+        <a
+          className="nav_link c-pointer d-block"
+          onClick={() => {
+            setOpen(!open);
+            if (!menuState) dispatch(openMenu());
+          }}
+        >
           <span className="first">
             <i className={`nav_icon ${icon}`}></i>
             <span className="nav_name">{title}</span>

@@ -16,6 +16,9 @@ const appSlice = createSlice({
     menuToggle: (state) => {
       state.menuOpen = !state.menuOpen;
     },
+    openMenu: (state) => {
+      state.menuOpen = true;
+    },
   },
   // extraReducers: (builder) => {
   //   builder.addCase(fetchUser.pending, (state) => {
@@ -28,5 +31,5 @@ const appSlice = createSlice({
   // },
 });
 
-export const { menuToggle } = appSlice.actions;
+export const { menuToggle, openMenu } = appSlice.actions;
 export default appSlice.reducer;
