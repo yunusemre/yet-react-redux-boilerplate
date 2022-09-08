@@ -61,7 +61,7 @@ const ShipmentSaved = () => {
   ];
   return (
     <div className="home-page">
-      <h3>{t('shipmentOperations.shipmentOperationsSaved.title')}</h3>
+      <h1 className="mb-3">{t('shipmentOperations.shipmentOperationsSaved.title')}</h1>
       <Row>
         <Col>
           <Card>

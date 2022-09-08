@@ -12,8 +12,14 @@ const ProjectRouter = (): any => {
       element: <Home />,
     },
     {
-      path: '/shipment-operations/saved',
-      element: <ShipmentSave />,
+      path: '/shipment-operations',
+      element: <PageLayout />,
+      children: [
+        {
+          path: 'saved',
+          element: <ShipmentSave />,
+        },
+      ],
     },
   ]);
 
