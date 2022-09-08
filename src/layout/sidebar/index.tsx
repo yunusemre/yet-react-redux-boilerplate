@@ -19,7 +19,7 @@ export const Sidebar = () => {
       url: '/',
     },
     {
-      icon: 'fa-solid fa-shield-halved',
+      icon: 'fa-solid fa-money-bill',
       title: 'Shipment Operations',
       url: '',
       subMenu: [
@@ -27,6 +27,54 @@ export const Sidebar = () => {
           icon: 'fa-solid fa-shield-halved',
           title: 'Shipment Save',
           url: '/shipment-operations/saved',
+        },
+      ],
+    },
+    {
+      icon: 'fa-solid fa-users',
+      title: 'Customer Operations',
+      url: '',
+      subMenu: [
+        {
+          icon: 'fa-solid fa-shield-halved',
+          title: 'Customer Save',
+          url: '/customer-operations/saved',
+        },
+      ],
+    },
+    {
+      icon: 'fa-solid fa-address-book',
+      title: 'Contract Operations',
+      url: '',
+      subMenu: [
+        {
+          icon: 'fa-solid fa-shield-halved',
+          title: 'Customer Save',
+          url: '/contract-operations/saved',
+        },
+      ],
+    },
+    {
+      icon: 'fa-solid fa-location-dot',
+      title: 'Hub',
+      url: '',
+      subMenu: [
+        {
+          icon: 'fa-solid fa-shield-halved',
+          title: 'Customer Save',
+          url: '/contract-operations/saved',
+        },
+      ],
+    },
+    {
+      icon: 'fa-solid fa-user',
+      title: 'Recipient Operations',
+      url: '',
+      subMenu: [
+        {
+          icon: 'fa-solid fa-shield-halved',
+          title: 'Customer Save',
+          url: '/contract-operations/saved',
         },
       ],
     },
