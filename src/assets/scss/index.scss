@@ -49,10 +49,14 @@ body {
 }
 
 .page-container {
-  width: 100%;
+  width: calc(100% - 78px);
   background: #f8f8f8;
   height: calc(100vh - 20px);
   margin: 10px 20px 0 20px;
   border-radius: 10px;
   overflow: auto;
+  overflow-x: hidden;
+  &.open {
+    width: calc(100% - 250px);
+  }
 }
