@@ -8,6 +8,38 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   const { t } = useTranslation();
   const [value, setValue] = useState<number>(1);
+  const dashboardData = [
+    {
+      name: 'dashboard.teslimatPerformansRaporu',
+      count: Math.ceil(Math.random() * 1000),
+      url: '#',
+      prefix: '',
+    },
+    {
+      name: 'dashboard.teslimEdilememisGönderilerRaporu',
+      count: Math.ceil(Math.random() * 100),
+      url: '#',
+      prefix: '%',
+    },
+    {
+      name: 'dashboard.teslimEdilmisGönderilerRaporu',
+      count: Math.ceil(Math.random() * 1000),
+      url: '#',
+      prefix: '',
+    },
+    {
+      name: 'dashboard.dagitimaCikmayanGonderilerRaporu',
+      count: Math.ceil(Math.random() * 1000),
+      url: '#',
+      prefix: '',
+    },
+    {
+      name: 'dashboard.fizikenGelmeyenGonderiler',
+      count: Math.ceil(Math.random() * 1000),
+      url: '#',
+      prefix: '',
+    },
+  ];
   const homeFilter = [
     {
       name: 'today',
@@ -58,81 +90,24 @@ const Home = () => {
               <hr />
               <div className="boxes">
                 <Row>
-                  <Col sm={12} md={6} lg={4} xl={4} className="mb-4">
-                    <Link to="#" className="box">
-                      <Card className="card-hover-shadow">
-                        <Card.Body>
-                          <h1 className="box-title">0%</h1>
-                          <span className="box-content">
-                            {t('dashboard.teslimatPerformansRaporu')}
-                          </span>
-                          <span className="float-end">
-                            <i className="fa-sharp fa-solid fa-angles-right"></i>
-                          </span>
-                        </Card.Body>
-                      </Card>
-                    </Link>
-                  </Col>
-                  <Col sm={12} md={6} lg={4} xl={4} className="mb-4" xs="2">
-                    <Link to="#" className="box">
-                      <Card className="card-hover-shadow">
-                        <Card.Body>
-                          <h1 className="box-title">0</h1>
-                          <span className="box-content">
-                            {t('dashboard.teslimEdilememisGönderilerRaporu')}
-                          </span>
-                          <span className="float-end">
-                            <i className="fa-sharp fa-solid fa-angles-right"></i>
-                          </span>
-                        </Card.Body>
-                      </Card>
-                    </Link>
-                  </Col>
-                  <Col sm={12} md={6} lg={4} xl={4} className="mb-4" xs="2">
-                    <Link to="#" className="box">
-                      <Card className="card-hover-shadow">
-                        <Card.Body>
-                          <h1 className="box-title">0</h1>
-                          <span className="box-content">
-                            {t('dashboard.teslimEdilmisGönderilerRaporu')}
-                          </span>
-                          <span className="float-end">
-                            <i className="fa-sharp fa-solid fa-angles-right"></i>
-                          </span>
-                        </Card.Body>
-                      </Card>
-                    </Link>
-                  </Col>
-                  <Col sm={12} md={6} lg={4} xl={4} className="mb-4" xs="2">
-                    <Link to="#" className="box">
-                      <Card className="card-hover-shadow">
-                        <Card.Body>
-                          <h1 className="box-title">0</h1>
-                          <span className="box-content">
-                            {t('dashboard.dagitimaCikmayanGonderilerRaporu')}
-                          </span>
-                          <span className="float-end">
-                            <i className="fa-sharp fa-solid fa-angles-right"></i>
-                          </span>
-                        </Card.Body>
-                      </Card>
-                    </Link>
-                  </Col>
-                  <Col sm={12} md={6} lg={4} xl={4} className="mb-4" xs="2">
-                    <Link to="#" className="box">
-                      <Card className="card-hover-shadow">
-                        <Card.Body>
-                          <h1 className="box-title">0</h1>
-                          <span className="box-content">
-                            {t('dashboard.fizikenGelmeyenGonderiler')}
-                          </span>
-                          <span className="float-end">
-                            <i className="fa-sharp fa-solid fa-angles-right"></i>
-                          </span>
-                        </Card.Body>
-                      </Card>
-                    </Link>
-                  </Col>
+                  {dashboardData.map(({ name, url, prefix, count }: any, index: number) => (
+                    <Col key={index} sm={12} md={6} lg={4} xl={4} className="mb-4">
+                      <Link to={url} className="box">
+                        <Card className="card-hover-shadow">
+                          <Card.Body>
+                            <h1 className="box-title bold">
+                              {count}
+                              {prefix}
+                            </h1>
+                            <span className="box-content text-body">{t(name)}</span>
+                            <span className="float-end">
+                              <i className="fa-sharp fa-solid fa-angles-right"></i>
+                            </span>
+                          </Card.Body>
+                        </Card>
+                      </Link>
+                    </Col>
+                  ))}
                 </Row>
               </div>
             </Card.Body>
