@@ -1,0 +1,17 @@
+.box {
+  color: var(--menu-color);
+  &:hover {
+    color: var(--menu-color);
+  }
+  .box-title {
+    font-size: 40px;
+  }
+
+  .box-content {
+    font-size: 11px;
+  }
+  .box-link {
+    display: flex;
+    justify-content: end;
+  }
+}

@@ -1,3 +1,16 @@
 {
-  "welcome": "Merhaba"
+  "welcome": "Merhaba",
+  "today": "Bugün",
+  "thisWeek": "Bu hafta",
+  "last7Days": "Son 7 gün",
+  "last30Days": "Son 30 gün",
+  "thisMonth": "Son ay",
+  "dashboard": {
+    "title": "Dashboard",
+    "teslimatPerformansRaporu": "Teslimat Performans Raporu",
+    "teslimEdilememisGönderilerRaporu": "Teslim Edilememiş Gönderiler Raporu",
+    "teslimEdilmisGönderilerRaporu": "Teslim Edilmiş Gönderiler Raporu",
+    "dagitimaCikmayanGonderilerRaporu": "Dağıtıma Çıkmayan Gönderiler Raporu",
+    "fizikenGelmeyenGonderiler": "Fiziken Gelmeyen Gönderiler"
+  }
 }

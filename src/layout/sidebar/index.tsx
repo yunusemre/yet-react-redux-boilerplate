@@ -15,37 +15,20 @@ export const Sidebar = () => {
   const menus = [
     {
       icon: 'fa-solid fa-house-user',
-      title: 'Home',
+      title: 'Dashboard',
       url: '/',
     },
     {
       icon: 'fa-solid fa-shield-halved',
-      title: 'Dasboard',
-      url: '/a',
-      subMenu: [
-        {
-          icon: 'fa-solid fa-shield-halved',
-          title: 'Dasboard emre',
-          url: '/b',
-        },
-      ],
-    },
-    {
-      icon: 'fa-solid fa-image',
       title: 'About',
-      url: '/c',
-      subMenu: [
-        {
-          icon: 'fa-solid fa-shield-halved',
-          title: 'Dasboard emre',
-          url: '/d',
-        },
-      ],
-    },
-    {
-      icon: 'fa-solid fa-calendar-days',
-      title: 'Contact',
-      url: '/e',
+      url: '/about',
+      // subMenu: [
+      //   {
+      //     icon: 'fa-solid fa-shield-halved',
+      //     title: 'Dasboard emre',
+      //     url: '/d',
+      //   },
+      // ],
     },
   ];
   return (
