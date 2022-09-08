@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Card, Col, Row, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import PageLayout from '../../layout/page';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -63,58 +64,49 @@ const Home = () => {
     },
   ];
   return (
-    <div className="home-page">
-      <h3>{t('dashboard.title')}</h3>
-      <Row>
-        <Col>
-          <Card>
-            <Card.Body>
-              <ToggleButtonGroup
-                type="radio"
-                name="options"
-                value={value}
-                onChange={(val: number) => setValue(val)}
-              >
-                {homeFilter.map(({ name, value }, index) => (
-                  <ToggleButton
-                    key={index}
-                    variant="outline-primary"
-                    id={`filter-${value}`}
-                    size="sm"
-                    value={value}
-                  >
-                    {t(name)}
-                  </ToggleButton>
-                ))}
-              </ToggleButtonGroup>
-              <hr />
-              <div className="boxes">
-                <Row>
-                  {dashboardData.map(({ name, url, prefix, count }: any, index: number) => (
-                    <Col key={index} sm={12} md={6} lg={4} xl={4} className="mb-4">
-                      <Link to={url} className="box">
-                        <Card className="card-hover-shadow">
-                          <Card.Body>
-                            <h1 className="box-title bold">
-                              {count}
-                              {prefix}
-                            </h1>
-                            <span className="box-content text-body">{t(name)}</span>
-                            <span className="float-end">
-                              <i className="fa-sharp fa-solid fa-angles-right"></i>
-                            </span>
-                          </Card.Body>
-                        </Card>
-                      </Link>
-                    </Col>
-                  ))}
-                </Row>
-              </div>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </div>
+    <PageLayout name="dashboard" title={t('dashboard.title')}>
+      <ToggleButtonGroup
+        type="radio"
+        name="options"
+        value={value}
+        onChange={(val: number) => setValue(val)}
+      >
+        {homeFilter.map(({ name, value }, index) => (
+          <ToggleButton
+            key={index}
+            variant="outline-primary"
+            id={`filter-${value}`}
+            size="sm"
+            value={value}
+          >
+            {t(name)}
+          </ToggleButton>
+        ))}
+      </ToggleButtonGroup>
+      <hr />
+      <div className="boxes">
+        <Row>
+          {dashboardData.map(({ name, url, prefix, count }: any, index: number) => (
+            <Col key={index} sm={12} md={6} lg={4} xl={4} className="mb-4">
+              <Link to={url} className="box">
+                <Card className="card-hover-shadow">
+                  <Card.Body>
+                    <h1 className="box-title bold">
+                      {count}
+                      {prefix}
+                    </h1>
+                    <span className="box-content text-body">{t(name)}</span>
+                    <span className="float-end">
+                      <i className="fa-sharp fa-solid fa-angles-right"></i>
+                    </span>
+                  </Card.Body>
+                </Card>
+              </Link>
+            </Col>
+          ))}
+        </Row>
+      </div>
+    </PageLayout>
   );
 };
 

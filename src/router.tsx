@@ -1,8 +1,9 @@
 import { lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
 
+const PageLayout = lazy(() => import('./layout/page'));
 const Home = lazy(() => import('./views/home'));
-const About = lazy(() => import('./views/about'));
+const ShipmentSave = lazy(() => import('./views/shipmentOperations/shipmentSave'));
 
 const ProjectRouter = (): any => {
   const route: any = useRoutes([
@@ -11,8 +12,8 @@ const ProjectRouter = (): any => {
       element: <Home />,
     },
     {
-      path: '/about',
-      element: <About />,
+      path: '/shipment-operations/saved',
+      element: <ShipmentSave />,
     },
   ]);
 

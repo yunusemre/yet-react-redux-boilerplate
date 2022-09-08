@@ -20,15 +20,15 @@ export const Sidebar = () => {
     },
     {
       icon: 'fa-solid fa-shield-halved',
-      title: 'About',
-      url: '/about',
-      // subMenu: [
-      //   {
-      //     icon: 'fa-solid fa-shield-halved',
-      //     title: 'Dasboard emre',
-      //     url: '/d',
-      //   },
-      // ],
+      title: 'Shipment Operations',
+      url: '',
+      subMenu: [
+        {
+          icon: 'fa-solid fa-shield-halved',
+          title: 'Shipment Save',
+          url: '/shipment-operations/saved',
+        },
+      ],
     },
   ];
   return (
@@ -45,9 +45,9 @@ export const Sidebar = () => {
           <Link to="/" className="nav_logo">
             <span className="c-pointer">
               {menuState ? (
-                <img src="logo.png" height={50} alt="Kolay gelsin" />
+                <img src="/logo.png" height={50} alt="Kolay gelsin" />
               ) : (
-                <img src="logo-mini.png" height={50} alt="Kolay gelsin" />
+                <img src="/logo-mini.png" height={50} alt="Kolay gelsin" />
               )}
             </span>
           </Link>

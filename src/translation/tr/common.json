@@ -12,5 +12,10 @@
     "teslimEdilmisGönderilerRaporu": "Teslim Edilmiş Gönderiler Raporu",
     "dagitimaCikmayanGonderilerRaporu": "Dağıtıma Çıkmayan Gönderiler Raporu",
     "fizikenGelmeyenGonderiler": "Fiziken Gelmeyen Gönderiler"
+  },
+  "shipmentOperations": {
+    "shipmentOperationsSaved": {
+      "title": "Shipment Saved"
+    }
   }
 }
