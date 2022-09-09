@@ -2,7 +2,6 @@ import { lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
 
 const Layout = lazy(() => import('./layout'));
-const DefaultLayout = lazy(() => import('./layout/defaultLayout'));
 const PageLayout = lazy(() => import('./layout/page'));
 const Home = lazy(() => import('./views/home'));
 const ShipmentSave = lazy(() => import('./views/shipmentOperations/shipmentSave'));
@@ -32,7 +31,7 @@ const ProjectRouter = (): any => {
     },
     {
       path: '/auth',
-      element: <DefaultLayout />,
+      element: <PageLayout />,
       children: [
         {
           path: 'login',
