@@ -70,7 +70,7 @@ const ForgotPasswordPage = () => {
               </label>
               <div className="d-grid mt-3">
                 <button type="submit" className="btn btn-primary btn-lg">
-                  Sign in
+                  Send
                 </button>
               </div>
             </form>
