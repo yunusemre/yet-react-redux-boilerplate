@@ -14,7 +14,6 @@ const LoginPage = () => {
         <div className="card card-lg mb-5">
           <div className="card-body">
             <h1>Login</h1>
-            <hr />
             <form className="js-validate needs-validation">
               <div className="mb-4">
                 <label htmlFor={labelId + 'username'} className="form-label">
