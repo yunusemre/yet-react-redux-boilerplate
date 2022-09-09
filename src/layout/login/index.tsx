@@ -6,7 +6,7 @@ const LoginPage = () => {
 
   return (
     <div className="container py-5 py-sm-7">
-      <Link to="/login" className="d-flex justify-content-center mb-5">
+      <Link to="/auth/login" className="d-flex justify-content-center mb-5">
         <img className="zi-2" src="/logo.png" alt="Image Description" />
       </Link>
 
