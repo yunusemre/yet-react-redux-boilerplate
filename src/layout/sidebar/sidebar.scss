@@ -3,22 +3,44 @@ $sidebarLogoHeight: 75;
 $sidebarFooterHeight: 100;
 $logoPadding: 10;
 $nav-width: 68px;
-$first-color: #333;
+$first-color: #cfcfcf;
+$first-text-color: #333333;
 $first-color-light: #afa5d9;
+$footerHeight: 150;
+
+#sidebar {
+  &:hover {
+    ::-webkit-scrollbar {
+      width: 5px;
+      border-radius: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      border-radius: 6px;
+      background: #dddddd;
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 6px;
+      background: var(--bs-primary);
+    }
+  }
+}
+
+.scrollHeightScroll {
+  height: calc(100vh - #{$footerHeight}px) !important;
+  overflow-x: hidden !important;
+}
 
 .kolaygelsin-navbar {
   background-color: $first-color;
   width: $nav-width;
   height: 100vh;
-  padding: 0.5rem 1rem 0 0;
+  padding: 0.5rem 16px 0 0;
   transition: 0.5s;
   z-index: 10;
+  color: $first-text-color;
 }
 .nav {
   background-color: $first-color;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
 
   .nav_list {
@@ -43,38 +65,40 @@ $first-color-light: #afa5d9;
   margin-left: -8px;
   position: relative;
   z-index: 2;
+  height: 50px;
 }
 
 .nav_link {
   white-space: nowrap;
   position: relative;
   margin-bottom: 0;
-  color: #cccccc;
+  color: $first-text-color;
   transition: 0.3s;
 
   &:hover {
-    color: white;
+    color: var(--bs-primary);
   }
 
   .nav_icon {
-    margin-right: 18px;
+    margin-right: 8px;
     width: 18px;
   }
   .caret_icon {
     right: 8px;
-    top: 12px;
+    top: 6px;
   }
 }
 .show {
   left: 0;
-  width: 250px;
+  width: 280px;
+  padding: 0.5rem 0 0 0;
 }
 
 .sidebar-toggle {
   position: absolute;
   top: 20px;
   right: -7px;
-  color: #cccccc;
+  color: $first-text-color;
   padding: 7px;
   z-index: 2;
 
@@ -88,7 +112,7 @@ $first-color-light: #afa5d9;
     width: 22px;
     height: 22px;
     transform: rotate(45deg);
-    background: #333;
+    background: $first-color;
     border-radius: 6px;
     right: 4px;
     top: 7px;

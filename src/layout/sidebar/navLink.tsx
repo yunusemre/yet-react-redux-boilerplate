@@ -5,20 +5,29 @@ import { openMenu } from '../../store/features/appSlice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 
 interface NavLinkMenuType {
-  url: string;
+  path: string;
+  data: any;
+  children: any[];
+  isOpen: boolean;
+}
+
+interface Data {
+  menu: Menu;
+}
+interface Menu {
   title: string;
   icon: string;
-  count?: number;
-  isOpen: boolean;
-  subMenu?: any[];
+  selected: boolean;
+  expanded: boolean;
+  order: number;
 }
 
 export const NavLinkMenu = ({
-  url,
-  title,
-  icon = 'fa-solid fa-clipboard',
-  count,
-  subMenu = [],
+  path,
+  data: {
+    menu: { title, icon },
+  },
+  children,
   isOpen,
 }: NavLinkMenuType) => {
   const dispatch = useAppDispatch();
@@ -31,15 +40,15 @@ export const NavLinkMenu = ({
 
   return (
     <li className="position-relative">
-      {url !== '' && subMenu.length === 0 ? (
+      {path !== '' && children.length === 0 ? (
         <NavLink
-          to={url}
+          to={path}
           className={(navData) =>
             'nav_link d-flex justify-content-between' + (navData.isActive ? ' selected' : '')
           }
         >
           <span className="first">
-            <i className={`nav_icon ${icon}`}></i>
+            <i className="nav_icon fa-solid fa-clipboard"></i>
             <span className="nav_name">{title}</span>
           </span>
         </NavLink>
@@ -52,12 +61,11 @@ export const NavLinkMenu = ({
           }}
         >
           <span className="first">
-            <i className={`nav_icon ${icon}`}></i>
+            <i className="nav_icon fa-solid fa-clipboard"></i>
             <span className="nav_name">{title}</span>
           </span>
           <span className="last" onClick={() => setOpen(!open)}>
-            <span className="count">{count}</span>
-            {isOpen && subMenu.length > 0 && (
+            {isOpen && children.length > 0 && (
               <i
                 className={`position-absolute caret_icon fa-sharp fa-solid ${
                   open ? 'fa-angle-up' : 'fa-angle-down'
@@ -70,7 +78,7 @@ export const NavLinkMenu = ({
 
       <Collapse in={open}>
         <ul className="sub-menu">
-          {subMenu.map((sub: any, index: number) => (
+          {children.map((sub: any, index: number) => (
             <NavLinkMenu key={index} {...sub} />
           ))}
         </ul>
