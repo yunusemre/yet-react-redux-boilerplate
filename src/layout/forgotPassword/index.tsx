@@ -1,7 +1,7 @@
 import { useId } from 'react';
 import { Link } from 'react-router-dom';
 
-const LoginPage = () => {
+const ForgotPasswordPage = () => {
   const labelId = useId();
 
   return (
@@ -13,7 +13,7 @@ const LoginPage = () => {
       <div className="mx-auto" style={{ maxWidth: '30rem' }}>
         <div className="card card-lg mb-5">
           <div className="card-body">
-            <h1>Login</h1>
+            <h1>Forgot Password</h1>
             <hr />
             <form className="js-validate needs-validation">
               <div className="mb-4">
@@ -82,4 +82,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default ForgotPasswordPage;

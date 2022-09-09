@@ -1,23 +1,46 @@
 import { lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
 
+const Layout = lazy(() => import('./layout'));
+const DefaultLayout = lazy(() => import('./layout/defaultLayout'));
 const PageLayout = lazy(() => import('./layout/page'));
 const Home = lazy(() => import('./views/home'));
 const ShipmentSave = lazy(() => import('./views/shipmentOperations/shipmentSave'));
+const LoginPage = lazy(() => import('./layout/login'));
+const ForgotPasswordPage = lazy(() => import('./layout/forgotPassword'));
 
 const ProjectRouter = (): any => {
   const route: any = useRoutes([
     {
-      path: '/',
-      element: <Home />,
-    },
-    {
-      path: '/shipment-operations',
-      element: <PageLayout />,
+      element: <Layout />,
       children: [
         {
-          path: 'saved',
-          element: <ShipmentSave />,
+          path: '/',
+          element: <Home />,
+        },
+        {
+          path: '/shipment-operations',
+          element: <PageLayout />,
+          children: [
+            {
+              path: 'saved',
+              element: <ShipmentSave />,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      path: '/auth',
+      element: <DefaultLayout />,
+      children: [
+        {
+          path: 'login',
+          element: <LoginPage />,
+        },
+        {
+          path: 'forgot-password',
+          element: <ForgotPasswordPage />,
         },
       ],
     },

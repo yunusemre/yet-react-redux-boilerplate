@@ -1,6 +1,6 @@
 const ENV: any = {
   development: {
-    apiUrl: 'http://localhost:3003',
+    apiUrl: 'https://apitest.klyglsn.com',
   },
   production: {
     apiUrl: '/',

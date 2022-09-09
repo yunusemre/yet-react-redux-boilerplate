@@ -3,15 +3,15 @@ import API from '../api';
 export const initAPIInterceptor = (store: any): void => {
   API.interceptors.request.use(
     async (request: any) => {
-      const { token } = store.getState();
-
-      if (!request.headers.Authorization && token && token.access_token) {
-        request.headers.Authorization = `${token.token_type} ${token.access_token}`;
+      const { login } = store.getState();
+      if (!request.headers.authorization) {
+        request.headers.authorization = `${login.token_type} ${login.token}`;
       }
 
       if (!request.headers['Content-Type']) {
         request.headers['Content-Type'] = 'application/json';
       }
+      // request.headers['Access-Control-Allow-Origin'] = '*';
       return request;
     },
     (error) => new Error(error)

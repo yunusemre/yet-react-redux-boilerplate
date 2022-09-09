@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import { useAppSelector } from '../store/hooks';
 import { Sidebar } from './sidebar';
 
@@ -6,7 +7,9 @@ const Layout = ({ children }: any): any => {
   return (
     <div className="wrapper d-flex">
       <Sidebar />
-      <div className={`page-container${menuState ? ' open' : ''}`}>{children}</div>
+      <div className={`page-container${menuState ? ' open' : ''}`}>
+        <Outlet />
+      </div>
     </div>
   );
 };

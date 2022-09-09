@@ -2,10 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   menuOpen: true,
-  id: 'de4ef374-ab8d-5be0-0d4b-3a052921c73f',
   name: 'Admin',
-  roles: ['admin'],
-  userName: 'admin',
   loading: false,
 };
 

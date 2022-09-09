@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import Loader from './components/loader';
-import Layout from './layout';
 import ProjectRouter from './router';
 
 const App = (): any => {
@@ -12,9 +11,7 @@ const App = (): any => {
 
   return (
     <Suspense fallback={<Loader />}>
-      <Layout>
-        <ProjectRouter />
-      </Layout>
+      <ProjectRouter />
     </Suspense>
   );
 };
