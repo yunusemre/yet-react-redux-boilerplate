@@ -46,8 +46,8 @@ export const Sidebar = () => {
           <ul className="nav_list m-0 p-0">
             <li className="position-relative">
               <NavLink to="/" className="nav_link d-flex justify-content-between">
-                <span className="first">
-                  <i className="nav_icon fa-solid fa-clipboard"></i>
+                <span className="first position-relative">
+                  <i className="nav_icon fa-solid fa-bell is-notification"></i>
                   <span className="nav_name">Notification</span>
                 </span>
               </NavLink>
