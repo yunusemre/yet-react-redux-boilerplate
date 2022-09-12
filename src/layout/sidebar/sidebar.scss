@@ -9,26 +9,33 @@ $first-color-light: #afa5d9;
 $footerHeight: 150;
 $sidebarFullWidth: 280;
 
-// #sidebar {
-//   &:hover {
-//     ::-webkit-scrollbar {
-//       width: 5px;
-//       border-radius: 6px;
-//     }
-//     ::-webkit-scrollbar-track {
-//       border-radius: 6px;
-//       background: #dddddd;
-//     }
-//     ::-webkit-scrollbar-thumb {
-//       border-radius: 6px;
-//       background: var(--bs-primary);
-//     }
-//   }
-// }
+#sidebar {
+  &:hover {
+    ::-webkit-scrollbar {
+      width: 5px;
+      border-radius: 6px;
+      margin-right: -10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      border-radius: 6px;
+      background: var(--bs-primary);
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+      cursor: pointer;
+    }
+  }
+}
 
 .scroll-height-scroll {
   height: calc(100vh - #{$footerHeight}px) !important;
-  overflow-x: hidden !important;
+  overflow: hidden;
+
+  &:hover {
+    overflow-y: visible;
+    overflow-x: hidden !important;
+  }
 }
 
 .kolaygelsin-navbar {
@@ -44,11 +51,9 @@ $sidebarFullWidth: 280;
     left: 0;
     width: #{$sidebarFullWidth}px;
     padding: 0.5rem 0 0 0;
-    .nav-footer {
-      overflow: visible !important;
-    }
   }
 }
+
 .nav {
   background-color: $first-color;
   overflow: hidden;
@@ -94,7 +99,7 @@ $sidebarFullWidth: 280;
     width: 18px;
   }
   .caret_icon {
-    right: 8px;
+    right: 22px;
     top: 6px;
   }
 }

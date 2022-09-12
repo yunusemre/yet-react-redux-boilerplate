@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
 import { NavLink } from 'react-router-dom';
-import { openMenu } from '../../store/features/appSlice';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { openMenu } from '../../../store/features/appSlice';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
 interface NavLinkMenuType {
   path: string;
@@ -45,6 +45,46 @@ export const NavLinkMenu = ({
     'fa-user',
     'fa-droplet',
     'fa-folder',
+    'fa-home',
+    'fa-search',
+    'fa-envelope',
+    'fa-heart',
+    'fa-gear',
+    'fa-star',
+    'fa-wrench',
+    'fa-user',
+    'fa-droplet',
+    'fa-folder',
+    'fa-home',
+    'fa-search',
+    'fa-envelope',
+    'fa-heart',
+    'fa-gear',
+    'fa-star',
+    'fa-wrench',
+    'fa-user',
+    'fa-droplet',
+    'fa-folder',
+    'fa-home',
+    'fa-search',
+    'fa-envelope',
+    'fa-heart',
+    'fa-gear',
+    'fa-star',
+    'fa-wrench',
+    'fa-user',
+    'fa-droplet',
+    'fa-folder',
+    'fa-home',
+    'fa-search',
+    'fa-envelope',
+    'fa-heart',
+    'fa-gear',
+    'fa-star',
+    'fa-wrench',
+    'fa-user',
+    'fa-droplet',
+    'fa-folder',
   ];
 
   useEffect(() => {
@@ -55,6 +95,7 @@ export const NavLinkMenu = ({
     <li className="position-relative">
       {path !== '' && children.length === 0 ? (
         <NavLink
+          title={title}
           to={path}
           className={(navData) =>
             'nav_link d-flex justify-content-between' + (navData.isActive ? ' selected' : '')

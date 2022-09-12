@@ -21,7 +21,12 @@ const CustomMenu = forwardRef(
     const [value] = useState('');
 
     return (
-      <div ref={ref} style={style} className={className} aria-labelledby={labeledBy}>
+      <div
+        ref={ref}
+        style={style}
+        className={`position-fixed ${className}`}
+        aria-labelledby={labeledBy}
+      >
         {Children.toArray(children).filter(
           (child: any) => !value || child.props.children.toLowerCase().startsWith(value)
         )}

@@ -9,7 +9,7 @@
   --body-font-weight: 400;
   --body-line-height: 1.5;
   --body-color: #f8f8f8;
-  --menu-color: #333333;
+  --color: #333333;
 }
 
 body {
@@ -17,7 +17,7 @@ body {
   padding: 0;
   font-size: var(--body-font-size);
   background-color: var(--body-color);
-  color: var(--menu-color);
+  color: var(-color);
   font-family: var(--body-font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -25,23 +25,20 @@ body {
   overflow: hidden;
 }
 
-// ::-webkit-scrollbar {
-//   width: 5px;
-//   border-radius: 6px;
-// }
-// ::-webkit-scrollbar-track {
-//   border-radius: 6px;
-//   background: #dddddd;
-// }
-// ::-webkit-scrollbar-thumb {
-//   border-radius: 6px;
-//   background: var(--bs-primary);
-// }
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 6px;
+  margin-right: -10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: var(--bs-primary);
+}
 
-// ::-webkit-scrollbar {
-//   width: 5px;
-//   cursor: pointer;
-// }
+::-webkit-scrollbar {
+  width: 5px;
+  cursor: pointer;
+}
 
 // ::-webkit-scrollbar-thumb {
 //   background-color: var(--primary);
@@ -52,6 +49,12 @@ body {
 //   background-color: #268317;
 // }
 
+a {
+  color: var(--color);
+  &:hover {
+    color: var(--bs-primary) !important;
+  }
+}
 .c-pointer {
   cursor: pointer;
 }
