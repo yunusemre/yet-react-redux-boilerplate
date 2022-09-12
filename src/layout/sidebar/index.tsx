@@ -2,14 +2,16 @@ import './sidebar.scss';
 
 import classNames from 'classnames';
 
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { menuToggle } from '../../store/features/appSlice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { areEqual } from '../../utils';
 import { NavLinkMenu } from './navLink';
 import NotificationMenu from './notificationMenu';
 import OptionsMenu from './optionsMenu';
 
-export const Sidebar = () => {
+const SidebarMenu = () => {
   const menuState = useAppSelector((state) => state.app.menuOpen);
   const dispatch = useAppDispatch();
 
@@ -57,6 +59,10 @@ export const Sidebar = () => {
     </div>
   );
 };
+
+const Sidebar = memo(SidebarMenu, areEqual);
+
+export { Sidebar };
 
 // const menus: any = [
 //   {

@@ -1,5 +1,5 @@
-const areEqual = (prevMovie: any, nextMovie: any) => {
-  return prevMovie.title === nextMovie.title && prevMovie.releaseDate === nextMovie.releaseDate;
+const areEqual = (prev: any, next: any) => {
+  return prev.title === next.title && prev.releaseDate === next.releaseDate;
 };
 
 export { areEqual };
