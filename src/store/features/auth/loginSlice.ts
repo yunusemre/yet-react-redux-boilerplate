@@ -19,7 +19,7 @@ const loginSlice = createSlice({
 
     loginRedirect: () => {
       const navigate = useNavigate();
-      navigate('/login');
+      navigate('/auth/login');
     },
   },
   extraReducers: (builder) => {
@@ -27,7 +27,6 @@ const loginSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(loginService.fulfilled, (state, { payload }: PayloadAction<any>) => {
-      console.log('login', payload);
       state.loading = false;
       state = { ...state, ...payload };
     });

@@ -11,7 +11,6 @@ export const initAPIInterceptor = (store: any): void => {
       if (!request.headers['Content-Type']) {
         request.headers['Content-Type'] = 'application/json';
       }
-      // request.headers['Access-Control-Allow-Origin'] = '*';
       return request;
     },
     (error) => new Error(error)
