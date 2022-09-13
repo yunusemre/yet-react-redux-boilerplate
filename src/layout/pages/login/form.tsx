@@ -1,4 +1,4 @@
-import { Field, useField } from 'formik';
+import { ErrorMessage, Field, useField } from 'formik';
 
 export const TextField = ({ label, children, ...props }: any) => {
   const [field, meta] = useField(props);
@@ -26,7 +26,7 @@ export const CheckOrRadioField = ({ label, children, ...props }: any) => {
           {label}
         </label>
       </div>
-      {meta.touched && meta.error ? <span className="text-danger">{meta.error}</span> : null}
+      <ErrorMessage name={field.name} />
     </label>
   );
 };

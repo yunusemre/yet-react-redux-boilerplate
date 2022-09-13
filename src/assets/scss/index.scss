@@ -1,9 +1,11 @@
+@import './packages';
 :root {
   --bs-primary: #3baf29;
   --body-font-family: 'NunitoSans-Regular';
   --body-font-size: 13px;
   --body-color: #f8f8f8;
   --color: #333333;
+  --bs-link-hover-color: #666;
 }
 
 $primary: #3baf29;
@@ -13,8 +15,6 @@ $warning: #e4cd19;
 $danger: #f41b0b;
 $color: #333;
 $menuOpenWidth: 250px;
-
-@import './packages';
 
 ::-webkit-scrollbar {
   width: 5px;
@@ -45,12 +45,7 @@ body {
 }
 
 a {
-  text-decoration: none;
-  color: var(--color);
-  &:hover,
-  &visit {
-    color: darken($primary, 10%) !important;
-  }
+  color: inherit;
 }
 
 .page-container {

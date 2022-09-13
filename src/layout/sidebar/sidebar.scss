@@ -83,7 +83,7 @@ $sidebarFullWidth: 280;
   transition: 0.3s;
 
   &:hover {
-    color: var(--bs-primary);
+    color: var(--bs-primary) !important;
   }
 
   .nav_icon {
