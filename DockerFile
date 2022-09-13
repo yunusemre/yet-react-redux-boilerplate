@@ -1,6 +1,7 @@
 FROM node:14
 WORKDIR /app .
 COPY /build .
+COPY package-* .
 RUN npm cache clean
 RUN npm install
 EXPOSE 3000
