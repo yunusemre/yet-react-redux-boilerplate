@@ -16,13 +16,10 @@ const OptionsMenuComponent = () => {
         </Dropdown.Toggle>
         <Dropdown.Menu as={CustomMenu}>
           <Dropdown.Item as={Link} to="/profile">
-            <i className="fa-sharp fa-solid fa-user"></i> Yunus Emre Tatar
-          </Dropdown.Item>
-          <Dropdown.Item as={Link} to="/profile">
-            <i className="fa-sharp fa-solid fa-globe"></i> Language
+            <i className="fa-sharp fa-solid fa-user me-1"></i> Yunus Emre Tatar
           </Dropdown.Item>
           <Dropdown.Item as={Link} to="/auth/login">
-            <i className="fa-solid fa-arrow-right-from-bracket"></i> Logout
+            <i className="fa-solid fa-arrow-right-from-bracket me-1"></i> Logout
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
