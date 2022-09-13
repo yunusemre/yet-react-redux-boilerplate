@@ -11,7 +11,7 @@ const persistConfig = {
   whitelist: ['app'],
 };
 
-const devEnv = process.env.NODE_ENV !== 'production';
+const devEnv = process.env.NODE_ENV === 'development';
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 const middleware = devEnv ? [logger] : [];
 
