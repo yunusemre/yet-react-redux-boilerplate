@@ -93,7 +93,7 @@ const Home = () => {
                   <Link to={url} className="box">
                     <Card className="card-hover-shadow">
                       <Card.Body>
-                        <h1 className="box-title bold">
+                        <h1 className="display-3 bold">
                           {count}
                           {prefix}
                         </h1>

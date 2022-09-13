@@ -1,13 +1,16 @@
+$primary: #3baf29;
+$secondary: #445f8a;
+$success: #1aaa63;
+$warning: #e4cd19;
+$danger: #f41b0b;
+$color: #333;
+
 @import './packages';
 
 :root {
   --bs-primary: #3baf29;
-  --font-family: sans-serif;
   --body-font-family: 'NunitoSans-Regular';
-  --body-font-bold-family: 'NunitoSans-Bold';
   --body-font-size: 13px;
-  --body-font-weight: 400;
-  --body-line-height: 1.5;
   --body-color: #f8f8f8;
   --color: #333333;
 }
@@ -17,7 +20,7 @@ body {
   padding: 0;
   font-size: var(--body-font-size);
   background-color: var(--body-color);
-  color: var(-color);
+  color: var(--color);
   font-family: var(--body-font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -40,38 +43,36 @@ body {
   cursor: pointer;
 }
 
-// ::-webkit-scrollbar-thumb {
-//   background-color: var(--primary);
-//   border-radius: 6px;
-// }
-
-// ::-webkit-scrollbar-thumb:hover {
-//   background-color: #268317;
-// }
-
 a {
+  text-decoration: none;
   color: var(--color);
-  &:hover {
-    color: var(--bs-primary) !important;
+  &:hover,
+  &visit {
+    color: darken($primary, 10%) !important;
   }
-}
-.c-pointer {
-  cursor: pointer;
-}
-
-.bold {
-  font-weight: bold;
 }
 
 .page-container {
-  width: calc(100% - 78px);
+  width: calc(100% - 58px);
   background: #f8f8f8;
   height: calc(100vh - 20px);
-  margin: 10px 20px 0 20px;
+  padding: 10px 20px 0 20px;
   border-radius: 10px;
   overflow: auto;
   overflow-x: hidden;
   &.open {
     width: calc(100% - 250px);
+  }
+}
+
+.btn {
+  &-primary {
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: darken($primary, 10%);
+      border-color: darken($primary, 10%);
+      box-shadow: none;
+    }
   }
 }

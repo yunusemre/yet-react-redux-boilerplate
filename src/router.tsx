@@ -1,12 +1,13 @@
 import { lazy } from 'react';
-import { useRoutes } from 'react-router-dom';
+import { Navigate, useRoutes } from 'react-router-dom';
 
 const Layout = lazy(() => import('./layout'));
-const PageLayout = lazy(() => import('./layout/page'));
+const PageLayout = lazy(() => import('./layout/pages/page-layout'));
 const Home = lazy(() => import('./views/home'));
-const ShipmentSave = lazy(() => import('./views/shipmentOperations/shipmentSave'));
-const LoginPage = lazy(() => import('./layout/login'));
-const ForgotPasswordPage = lazy(() => import('./layout/forgotPassword'));
+const ShipmentSave = lazy(() => import('./views/shipment-operations/shipment-save'));
+const LoginPage = lazy(() => import('./layout/pages/login'));
+const ForgotPasswordPage = lazy(() => import('./layout/pages/forgot-password'));
+const Page404 = lazy(() => import('./layout/pages/404-page'));
 
 const ProjectRouter = (): any => {
   const route: any = useRoutes([
@@ -42,6 +43,23 @@ const ProjectRouter = (): any => {
           element: <ForgotPasswordPage />,
         },
       ],
+    },
+    {
+      path: '*',
+      element: <PageLayout />,
+      children: [
+        {
+          path: '404',
+          element: <Page404 />,
+        },
+        {
+          path: '*',
+          element: <Navigate to="/404" replace />,
+        },
+      ],
+    },
+    {
+      path: '*',
     },
   ]);
 

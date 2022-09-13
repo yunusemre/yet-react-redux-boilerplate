@@ -1,0 +1,21 @@
+#notification-menu {
+  .popover {
+    --bs-popover-max-width: 500px !important;
+  }
+  .popover-arrow {
+    left: -35px !important;
+  }
+}
+
+.is-notification {
+  &:after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+  }
+}

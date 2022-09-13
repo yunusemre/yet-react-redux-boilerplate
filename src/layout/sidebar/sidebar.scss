@@ -1,11 +1,6 @@
-$sidebarWidth: 70;
-$sidebarLogoHeight: 75;
-$sidebarFooterHeight: 100;
-$logoPadding: 10;
+$sidebarLogoHeight: 50px;
 $nav-width: 68px;
-$first-color: #cfcfcf;
-$first-text-color: #333333;
-$first-color-light: #afa5d9;
+$navbar-bg: #cfcfcf;
 $footerHeight: 150;
 $sidebarFullWidth: 280;
 
@@ -39,13 +34,12 @@ $sidebarFullWidth: 280;
 }
 
 .kolaygelsin-navbar {
-  background-color: $first-color;
+  background-color: $navbar-bg;
   width: $nav-width;
   height: 100vh;
   padding: 8px 16px 0 0;
   transition: 0.5s;
   z-index: 10;
-  color: $first-text-color;
 
   &.show {
     left: 0;
@@ -55,7 +49,6 @@ $sidebarFullWidth: 280;
 }
 
 .nav {
-  background-color: $first-color;
   overflow: hidden;
 
   .nav_list {
@@ -80,14 +73,13 @@ $sidebarFullWidth: 280;
   margin-left: -8px;
   position: relative;
   z-index: 2;
-  height: 50px;
+  height: $sidebarLogoHeight;
 }
 
 .nav_link {
   white-space: nowrap;
   position: relative;
   margin-bottom: 0;
-  color: $first-text-color;
   transition: 0.3s;
 
   &:hover {
@@ -108,12 +100,12 @@ $sidebarFullWidth: 280;
   position: absolute;
   top: 20px;
   right: -7px;
-  color: $first-text-color;
   padding: 7px;
   z-index: 2;
 
   i {
     font-size: 10px;
+    color: var(--color);
   }
 
   &:after {
@@ -122,7 +114,7 @@ $sidebarFullWidth: 280;
     width: 22px;
     height: 22px;
     transform: rotate(45deg);
-    background: $first-color;
+    background: $navbar-bg;
     border-radius: 6px;
     right: 4px;
     top: 7px;
@@ -137,8 +129,8 @@ $sidebarFullWidth: 280;
       position: absolute;
       left: -16px;
       top: 4px;
-      background-color: #37b149;
-      z-index: 123123;
+      background-color: var(--bs-primary);
+      z-index: 100;
       width: 4px;
       height: 24px;
     }
@@ -150,34 +142,9 @@ $sidebarFullWidth: 280;
     position: absolute;
     left: 0px;
     top: 4px;
-    background-color: #37b149;
-    z-index: 123123;
+    background-color: var(--bs-primary);
+    z-index: 100;
     width: 4px;
     height: 24px;
-  }
-}
-
-.is-notification {
-  &:after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 8px;
-    width: 8px;
-    height: 8px;
-    background-color: red;
-    border-radius: 50%;
-  }
-}
-
-.menu-dropdown-options {
-  i {
-    top: 2px;
-  }
-}
-
-#notification-menu {
-  .popover-arrow {
-    left: -40px !important;
   }
 }
