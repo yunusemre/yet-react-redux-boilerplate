@@ -11,8 +11,9 @@ const persistConfig = {
   whitelist: ['app'],
 };
 
+const devEnv = process.env.NODE_ENV !== 'production';
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-const middleware = process.env.NODE_ENV === 'development' ? [logger] : [];
+const middleware = devEnv ? [logger] : [];
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -20,7 +21,7 @@ export const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false,
     }).concat(middleware),
-  devTools: process.env.NODE_ENV !== 'production',
+  devTools: devEnv,
 });
 
 export const persistor = persistStore(store);
