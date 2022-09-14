@@ -8,6 +8,7 @@ const ShipmentSave = lazy(() => import('./views/shipment-operations/shipment-sav
 const LoginPage = lazy(() => import('./layout/pages/login'));
 const ForgotPasswordPage = lazy(() => import('./layout/pages/forgot-password'));
 const Page404 = lazy(() => import('./layout/pages/404-page'));
+const ProfilePage = lazy(() => import('./layout/pages/profile'));
 
 const ProjectRouter = (): any => {
   const route: any = useRoutes([
@@ -27,6 +28,10 @@ const ProjectRouter = (): any => {
               element: <ShipmentSave />,
             },
           ],
+        },
+        {
+          path: '/profile',
+          element: <ProfilePage />,
         },
       ],
     },

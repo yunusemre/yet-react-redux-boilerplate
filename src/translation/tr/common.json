@@ -13,6 +13,9 @@
     "dagitimaCikmayanGonderilerRaporu": "Dağıtıma Çıkmayan Gönderiler Raporu",
     "fizikenGelmeyenGonderiler": "Fiziken Gelmeyen Gönderiler"
   },
+  "profile": {
+    "title": "Profile"
+  },
   "shipmentOperations": {
     "shipmentOperationsSaved": {
       "title": "Shipment Saved"
