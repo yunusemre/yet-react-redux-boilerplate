@@ -68,10 +68,10 @@ const menus: any = [
     data: null,
     children: [
       {
-        path: '/',
+        path: '/home',
         data: {
           menu: {
-            title: 'Dashboard',
+            title: 'Home',
             icon: null,
             selected: false,
             expanded: false,
@@ -84,7 +84,7 @@ const menus: any = [
         path: '/dashboard',
         data: {
           menu: {
-            title: 'Dashboard Site',
+            title: 'Dashboard',
             icon: null,
             selected: false,
             expanded: false,

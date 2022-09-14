@@ -16,6 +16,14 @@ const ProjectRouter = (): any => {
       children: [
         {
           path: '/',
+          element: <Navigate to="/home" replace />,
+        },
+        {
+          path: '/home',
+          element: <Home />,
+        },
+        {
+          path: '/dashboard',
           element: <Home />,
         },
         {
