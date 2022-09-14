@@ -14,7 +14,7 @@ $success: #1aaa63;
 $warning: #e4cd19;
 $danger: #f41b0b;
 $color: #333;
-$menuOpenWidth: 250px;
+$menuOpenWidth: 250;
 
 ::-webkit-scrollbar {
   width: 5px;
@@ -62,7 +62,7 @@ a {
   overflow: auto;
   overflow-x: hidden;
   &.open {
-    width: calc(100% - $menuOpenWidth);
+    width: calc(100% - #{$menuOpenWidth}px);
   }
 }
 
