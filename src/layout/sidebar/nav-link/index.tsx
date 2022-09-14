@@ -34,59 +34,6 @@ export const NavLinkMenu = ({
   const menuState = useAppSelector((state) => state.app.menuOpen);
   const [open, setOpen] = useState<boolean>(false);
 
-  const icons = [
-    'fa-home',
-    'fa-search',
-    'fa-envelope',
-    'fa-heart',
-    'fa-gear',
-    'fa-star',
-    'fa-wrench',
-    'fa-user',
-    'fa-droplet',
-    'fa-folder',
-    'fa-home',
-    'fa-search',
-    'fa-envelope',
-    'fa-heart',
-    'fa-gear',
-    'fa-star',
-    'fa-wrench',
-    'fa-user',
-    'fa-droplet',
-    'fa-folder',
-    'fa-home',
-    'fa-search',
-    'fa-envelope',
-    'fa-heart',
-    'fa-gear',
-    'fa-star',
-    'fa-wrench',
-    'fa-user',
-    'fa-droplet',
-    'fa-folder',
-    'fa-home',
-    'fa-search',
-    'fa-envelope',
-    'fa-heart',
-    'fa-gear',
-    'fa-star',
-    'fa-wrench',
-    'fa-user',
-    'fa-droplet',
-    'fa-folder',
-    'fa-home',
-    'fa-search',
-    'fa-envelope',
-    'fa-heart',
-    'fa-gear',
-    'fa-star',
-    'fa-wrench',
-    'fa-user',
-    'fa-droplet',
-    'fa-folder',
-  ];
-
   useEffect(() => {
     if (!menuState) setOpen(menuState);
   }, [menuState]);
@@ -102,7 +49,7 @@ export const NavLinkMenu = ({
           }
         >
           <span className="first">
-            <i className={`nav_icon fa-solid ${icons[Math.ceil(Math.random() * 11)]}`}></i>
+            <i className="nav_icon fa-solid fa-envelope"></i>
             <span className="nav_name">{title}</span>
           </span>
         </NavLink>
@@ -115,7 +62,6 @@ export const NavLinkMenu = ({
           }}
         >
           <span className="first">
-            <i className={`nav_icon fa-solid ${icons[Math.ceil(Math.random() * 11)]}`}></i>
             <span className="nav_name">{title}</span>
           </span>
           <span className="last" onClick={() => setOpen(!open)}>

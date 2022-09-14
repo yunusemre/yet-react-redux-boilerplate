@@ -5,7 +5,6 @@ import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { menuToggle } from '../../store/features/appSlice';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { areEqual } from '../../utils';
 import { NavLinkMenu } from './nav-link';
 import NotificationMenu from './notification-menu';
 import OptionsMenu from './options-menu';
@@ -59,7 +58,7 @@ const SidebarMenu = () => {
   );
 };
 
-const Sidebar = memo(SidebarMenu, areEqual);
+const Sidebar = memo(SidebarMenu);
 
 export { Sidebar };
 
