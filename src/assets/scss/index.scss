@@ -31,6 +31,9 @@ $menuOpenWidth: 250px;
   cursor: pointer;
 }
 
+html {
+  height: -webkit-fill-available;
+}
 body {
   margin: 0;
   padding: 0;
@@ -42,6 +45,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--body-color);
   overflow: hidden;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 a {

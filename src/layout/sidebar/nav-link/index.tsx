@@ -62,6 +62,7 @@ export const NavLinkMenu = ({
           }}
         >
           <span className="first">
+            <i className="nav_icon fa-solid fa-envelope"></i>
             <span className="nav_name">{title}</span>
           </span>
           <span className="last" onClick={() => setOpen(!open)}>

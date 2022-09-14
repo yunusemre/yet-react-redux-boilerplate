@@ -60,9 +60,6 @@ const ProjectRouter = (): any => {
         },
       ],
     },
-    {
-      path: '*',
-    },
   ]);
 
   return route;

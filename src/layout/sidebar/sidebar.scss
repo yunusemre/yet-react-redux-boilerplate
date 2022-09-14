@@ -24,7 +24,7 @@ $sidebarFullWidth: 280;
 }
 
 .scroll-height-scroll {
-  height: calc(100vh - #{$footerHeight}px) !important;
+  height: calc(100% - #{$footerHeight}px) !important;
   overflow: hidden;
 
   &:hover {
@@ -34,7 +34,8 @@ $sidebarFullWidth: 280;
 }
 
 .kolaygelsin-navbar {
-  background-color: $navbar-bg;
+  // background-color: $navbar-bg;
+  background: red;
   width: $nav-width;
   height: 100vh;
   padding: 8px 16px 0 0;
