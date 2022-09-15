@@ -113,13 +113,15 @@ $sidebarFullWidth: 280;
 .sidebar-toggle {
   position: absolute;
   top: 20px;
-  right: -7px;
+  right: -12px;
   padding: 7px;
   z-index: 2;
 
   i {
     position: absolute;
     font-size: 10px;
+    top: 13px;
+    left: -4px;
     color: var(--color);
   }
 
@@ -141,8 +143,7 @@ $sidebarFullWidth: 280;
 
     i {
       position: absolute;
-      font-size: 12px;
-      top: 11px;
+      top: 12px;
       left: 4px;
     }
 
