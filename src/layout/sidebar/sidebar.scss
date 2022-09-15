@@ -24,7 +24,7 @@ $sidebarFullWidth: 280;
 }
 
 .scroll-height-scroll {
-  height: calc(100% - #{$footerHeight}px) !important;
+  height: calc(var(--vh, 1vh) * 100 - #{$footerHeight}px);
   overflow: hidden;
 
   &:hover {
@@ -45,6 +45,14 @@ $sidebarFullWidth: 280;
     left: 0;
     width: #{$sidebarFullWidth}px;
     padding: 0.5rem 0 0 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+
+    &.show {
+      display: block;
+    }
   }
 }
 
@@ -119,6 +127,18 @@ $sidebarFullWidth: 280;
     right: 4px;
     top: 7px;
     z-index: -1;
+  }
+
+  @media screen and (max-width: 768px) {
+    right: -18px;
+
+    &:after {
+      content: '';
+      width: 26px;
+      height: 26px;
+      top: 5px;
+      right: 4px;
+    }
   }
 }
 
