@@ -76,7 +76,7 @@ a {
     display: block;
 
     &.open {
-      width: calc(100% - #{$menuOpenWidth}px);
+      width: 100%;
     }
   }
 }

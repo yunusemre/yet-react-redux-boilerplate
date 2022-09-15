@@ -17,14 +17,17 @@ const SidebarMenu = () => {
 
   return (
     <div id="sidebar" className="sidebar position-relative">
-      <div className="sidebar-toggle c-pointer" onClick={() => dispatch(menuToggle())}>
+      <div
+        className={`sidebar-toggle c-pointer${isOpenMenu}`}
+        onClick={() => dispatch(menuToggle())}
+      >
         {menuState ? (
           <i className="fa-solid fa-arrow-left"></i>
         ) : (
           <i className="fa-solid fa-arrow-right"></i>
         )}
       </div>
-      <div className={`kolaygelsin-navbar ${isOpenMenu}`}>
+      <div className={`kolaygelsin-navbar${isOpenMenu}`}>
         <nav className="nav">
           <Link to="/" className="nav_logo mb-4 d-block">
             <span className="c-pointer">

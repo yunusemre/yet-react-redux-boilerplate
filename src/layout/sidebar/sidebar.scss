@@ -56,6 +56,7 @@ $sidebarFullWidth: 280;
     display: none;
 
     &.show {
+      position: absolute;
       display: block;
     }
   }
@@ -117,6 +118,7 @@ $sidebarFullWidth: 280;
   z-index: 2;
 
   i {
+    position: absolute;
     font-size: 10px;
     color: var(--color);
   }
@@ -135,14 +137,32 @@ $sidebarFullWidth: 280;
   }
 
   @media screen and (max-width: 768px) {
-    right: -18px;
+    left: -2px;
+
+    i {
+      position: absolute;
+      font-size: 12px;
+      top: 11px;
+      left: 4px;
+    }
 
     &:after {
       content: '';
       width: 26px;
       height: 26px;
       top: 5px;
-      right: 4px;
+      right: -3px;
+    }
+
+    &.show {
+      left: 274px;
+
+      i {
+        position: absolute;
+        font-size: 12px;
+        top: 11px;
+        left: 6px;
+      }
     }
   }
 }
