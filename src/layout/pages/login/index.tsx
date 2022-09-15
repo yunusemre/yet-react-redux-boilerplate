@@ -1,6 +1,6 @@
 import { Form, Formik } from 'formik';
 import { useId } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { CheckOrRadioField, TextField } from './form';
@@ -19,13 +19,12 @@ const LoginPage = () => {
         <img className="zi-2" src="/logo.png" alt="Image Description" />
       </Link>
 
-      <div className="mx-auto" style={{ maxWidth: '30rem' }}>
-        <div className="card card-lg mb-5">
-          <div className="card-body">
+      <div className="mx-auto max-width-30">
+        <Card>
+          <Card.Body>
             <div className="text-center">
               <h1>Sign In</h1>
             </div>
-
             <Formik
               initialValues={{
                 userName: '',
@@ -68,8 +67,8 @@ const LoginPage = () => {
                 </Button>
               </Form>
             </Formik>
-          </div>
-        </div>
+          </Card.Body>
+        </Card>
         <p className="text-center mt-2">Version: 0.1.0</p>
       </div>
     </div>

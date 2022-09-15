@@ -1,5 +1,5 @@
 import { Form, Formik } from 'formik';
-import { Button } from 'react-bootstrap';
+import { Button, Card, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { TextField } from '../login/form';
@@ -10,14 +10,14 @@ const ForgotPasswordPage = () => {
     email: Yup.string().email('Invalid email').required('Required'),
   });
   return (
-    <div className="container py-5 py-sm-7">
+    <Container className="py-5 py-sm-7">
       <Link to="/auth/forgot-password" className="d-flex justify-content-center mb-5">
         <img className="zi-2" src="/logo.png" alt="Image Description" />
       </Link>
 
-      <div className="mx-auto" style={{ maxWidth: '30rem' }}>
-        <div className="card card-lg mb-5">
-          <div className="card-body">
+      <div className="mx-auto max-width-30">
+        <Card>
+          <Card.Body>
             <Formik
               initialValues={{
                 email: '',
@@ -58,10 +58,10 @@ const ForgotPasswordPage = () => {
                 </div>
               </Form>
             </Formik>
-          </div>
-        </div>
+          </Card.Body>
+        </Card>
       </div>
-    </div>
+    </Container>
   );
 };
 
