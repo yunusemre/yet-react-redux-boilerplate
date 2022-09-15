@@ -31,6 +31,11 @@ $sidebarFullWidth: 280;
     overflow-y: visible;
     overflow-x: hidden !important;
   }
+
+  @media screen and (max-width: 768px) {
+    overflow-y: visible;
+    overflow-x: hidden !important;
+  }
 }
 
 .kolaygelsin-navbar {

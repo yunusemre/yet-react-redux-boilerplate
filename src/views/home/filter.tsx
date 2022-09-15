@@ -20,6 +20,7 @@ const FilterComponent = ({ data }: any) => {
           id={`filter-${value}`}
           size="sm"
           value={value}
+          className="p-1 ps-2 pe-2"
         >
           {t(name)}
         </ToggleButton>
