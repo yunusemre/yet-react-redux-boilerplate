@@ -69,7 +69,7 @@ const LoginPage = () => {
             </Formik>
           </Card.Body>
         </Card>
-        <p className="text-center mt-2">Version: 0.1.0</p>
+        <p className="text-center mt-2">Version: 1.0.0</p>
       </div>
     </div>
   );
