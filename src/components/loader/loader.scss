@@ -14,6 +14,10 @@
   position: fixed;
   bottom: calc(50% - 50px);
   left: calc(50% - 50px);
+
+  @media screen and (max-width: 768px) {
+    bottom: calc(50% - 80px);
+  }
 }
 
 @keyframes spin {
