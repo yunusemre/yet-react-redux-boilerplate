@@ -4,20 +4,17 @@ import { ErrorMessage, Field, useField } from 'formik';
 import { useState } from 'react';
 import Select from 'react-select';
 
-export const TextPasswordField = ({ label, children, ...props }: any) => {
+export const TextPasswordField = ({ label, ...props }: any) => {
   const [togglePassword, setTogglePassword] = useState<boolean>(false);
   const [field, meta] = useField(props);
   return (
-    <div className={`mb-4 form-group ${meta.touched && meta.error ? 'error' : ''}`}>
-      <span className="d-flex justify-content-between">
-        {label && (
-          <label htmlFor={props.id} className="form-label">
-            {label}
-          </label>
-        )}
-        {children}
-      </span>
-      <div className="position-relative">
+    <div className={`mb-4 row form-group ${meta.touched && meta.error ? 'error' : ''}`}>
+      {label && (
+        <label htmlFor={props.id} className="form-label col-sm-3">
+          {label}
+        </label>
+      )}
+      <div className="position-relative col-sm-9">
         <Field
           type={togglePassword ? 'text' : 'password'}
           {...props}
@@ -30,8 +27,8 @@ export const TextPasswordField = ({ label, children, ...props }: any) => {
           }  fa-eye`}
           onClick={() => setTogglePassword(!togglePassword)}
         ></i>
+        <ErrorMessage component="span" className="text-danger" name={props.name} />
       </div>
-      <ErrorMessage component="span" className="text-danger" name={props.name} />
     </div>
   );
 };
@@ -39,19 +36,16 @@ export const TextPasswordField = ({ label, children, ...props }: any) => {
 export const TextField = ({ label, children, ...props }: any) => {
   const [field, meta] = useField(props);
   return (
-    <div className={`mb-4 form-group ${meta.touched && meta.error ? 'error' : ''}`}>
-      <span className="d-flex justify-content-between">
-        {label && (
-          <label htmlFor={props.id} className="form-label">
-            {label}
-          </label>
-        )}
-        {children}
-      </span>
-      <div className="position-relative">
+    <div className={`mb-4 row form-group ${meta.touched && meta.error ? 'error' : ''}`}>
+      {label && (
+        <label htmlFor={props.id} className="form-label col-sm-3">
+          {label}
+        </label>
+      )}
+      <div className="position-relative col-sm-9">
         <Field {...field} {...props} className="form-control" />
+        <ErrorMessage component="span" className="text-danger" name={props.name} />
       </div>
-      <ErrorMessage component="span" className="text-danger" name={props.name} />
     </div>
   );
 };

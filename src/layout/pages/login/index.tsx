@@ -31,6 +31,7 @@ const LoginPage = () => {
             <div className="text-center">
               <h1>{t('auth.sign_in')}</h1>
             </div>
+            <hr />
             <Formik
               initialValues={{
                 userName: '',
@@ -44,29 +45,32 @@ const LoginPage = () => {
               }}
             >
               {({ isSubmitting }) => (
-                <Form>
+                <Form className="row">
                   <TextField label={t('userName')} id="userName" name="userName" />
                   <TextPasswordField
                     label={t('auth.password')}
                     id="password"
                     name="password"
                     placeholder="******"
-                  >
+                  />
+                  <span className="d-flex justify-content-between">
+                    <CheckOrRadioField
+                      label={t('auth.remember_me')}
+                      className="form-check-input"
+                      id={labelId + 'name'}
+                      type="checkbox"
+                      name="checked"
+                    />
                     <Link className="form-label-link mb-0" to={Path.forgot_password}>
                       {t('auth.forgot_password')}?
                     </Link>
-                  </TextPasswordField>
-                  <CheckOrRadioField
-                    label={t('auth.remember_me')}
-                    className="form-check-input"
-                    id={labelId + 'name'}
-                    type="checkbox"
-                    name="checked"
-                  />
-                  <Button type="submit" disabled={isSubmitting} variant="primary" className="w-100">
-                    <i className="fa-solid fa-right-to-bracket me-2"></i>
-                    <span>{t('auth.sign_in')}</span>
-                  </Button>
+                  </span>
+                  <div className="col-sm-12">
+                    <Button type="submit" disabled={isSubmitting} variant="primary" className="w-100">
+                      <i className="fa-solid fa-right-to-bracket me-2"></i>
+                      <span>{t('auth.sign_in')}</span>
+                    </Button>
+                  </div>
                 </Form>
               )}
             </Formik>
