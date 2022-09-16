@@ -13,6 +13,7 @@
   "userName": "Kullanıcı adı",
   "email_address": "E-posta adresi",
   "required": "Zorunlu alan",
+  "close": "Kapat",
   "auth": {
     "enter_your_password": "Lütfen şifrenizi giriniz",
     "password": "Şifre",
