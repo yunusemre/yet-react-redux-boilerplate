@@ -48,7 +48,6 @@ const LoginPage = () => {
                   <TextField label={t('userName')} id="userName" name="userName" />
                   <TextPasswordField
                     label={t('auth.password')}
-                    type="password"
                     id="password"
                     name="password"
                     placeholder="******"
