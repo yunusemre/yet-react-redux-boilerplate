@@ -22,7 +22,7 @@ export const TextField = ({ label, children, ...props }: any) => {
 export const CheckOrRadioField = ({ label, children, ...props }: any) => {
   const [field, meta] = useField(props);
   return (
-    <label className="form-label">
+    <>
       <div className={`mb-4 form-check ${meta.touched && meta.error ? 'error' : ''}`}>
         <label htmlFor={props.id} className="form-check-label">
           <Field {...field} {...props} />
@@ -30,7 +30,7 @@ export const CheckOrRadioField = ({ label, children, ...props }: any) => {
         </label>
       </div>
       <ErrorMessage component="span" className="text-danger" name={props.name} />
-    </label>
+    </>
   );
 };
 
