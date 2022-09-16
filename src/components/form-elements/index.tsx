@@ -1,5 +1,40 @@
+import './form-element.scss';
+
 import { ErrorMessage, Field, useField } from 'formik';
+import { useState } from 'react';
 import Select from 'react-select';
+
+export const TextPasswordField = ({ label, children, ...props }: any) => {
+  const [togglePassword, setTogglePassword] = useState<boolean>(false);
+  const [field, meta] = useField(props);
+  return (
+    <div className={`mb-4 form-group ${meta.touched && meta.error ? 'error' : ''}`}>
+      <span className="d-flex justify-content-between">
+        {label && (
+          <label htmlFor={props.id} className="form-label">
+            {label}
+          </label>
+        )}
+        {children}
+      </span>
+      <div className="position-relative">
+        <Field
+          type={togglePassword ? 'text' : 'password'}
+          {...props}
+          {...field}
+          className="form-control"
+        />
+        <i
+          className={`position-absolute c-pointer password-eye ${
+            togglePassword ? 'fa-solid' : 'fa-regular'
+          }  fa-eye`}
+          onClick={() => setTogglePassword(!togglePassword)}
+        ></i>
+      </div>
+      <ErrorMessage component="span" className="text-danger" name={props.name} />
+    </div>
+  );
+};
 
 export const TextField = ({ label, children, ...props }: any) => {
   const [field, meta] = useField(props);
@@ -13,7 +48,9 @@ export const TextField = ({ label, children, ...props }: any) => {
         )}
         {children}
       </span>
-      <Field {...field} {...props} className="form-control" />
+      <div className="position-relative">
+        <Field {...field} {...props} className="form-control" />
+      </div>
       <ErrorMessage component="span" className="text-danger" name={props.name} />
     </div>
   );

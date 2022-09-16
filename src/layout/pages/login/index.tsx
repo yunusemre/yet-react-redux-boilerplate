@@ -4,7 +4,7 @@ import { Button, Card } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { CheckOrRadioField, TextField } from '../../../components/form-elements';
+import { CheckOrRadioField, TextField, TextPasswordField } from '../../../components/form-elements';
 import Path from '../../../router/paths';
 
 const LoginPage = () => {
@@ -15,7 +15,7 @@ const LoginPage = () => {
     userName: Yup.string()
       .min(2, t('auth.too_short'))
       .max(70, t('auth.too_long'))
-      .required(t('auth.required')),
+      .required(t('required')),
     password: Yup.string().required(t('auth.enter_your_password')),
   });
 
@@ -46,7 +46,7 @@ const LoginPage = () => {
               {({ isSubmitting }) => (
                 <Form>
                   <TextField label={t('userName')} id="userName" name="userName" />
-                  <TextField
+                  <TextPasswordField
                     label={t('auth.password')}
                     type="password"
                     id="password"
@@ -56,7 +56,7 @@ const LoginPage = () => {
                     <Link className="form-label-link mb-0" to={Path.forgot_password}>
                       {t('auth.forgot_password')}?
                     </Link>
-                  </TextField>
+                  </TextPasswordField>
                   <CheckOrRadioField
                     label={t('auth.remember_me')}
                     className="form-check-input"
