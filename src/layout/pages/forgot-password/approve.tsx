@@ -43,7 +43,7 @@ const ApproveForgetPassword = ({
         }}
       >
         <Form>
-          <Modal.Body>
+          <Modal.Body className="pt-1 pb-1">
             <TextField
               label="Doğrulama Kodu"
               type="number"
@@ -57,7 +57,7 @@ const ApproveForgetPassword = ({
               name="newPasswordAgain"
             />
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer className="border-0 pt-1">
             <Button variant="outline-primary" size="sm" onClick={handleClose}>
               {t('close')}
             </Button>

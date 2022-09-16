@@ -59,7 +59,7 @@ const ForgotPasswordPage = () => {
             </Formik>
           </Card.Body>
         </Card>
-        <ApproveForgetPassword showModal={show} />
+        <ApproveForgetPassword showModal={show} handleClose={() => setShow(false)} />
       </div>
     </Container>
   );
