@@ -1,10 +1,30 @@
 {
   "welcome": "Merhaba",
+  "menu": {
+    "options": "Ayarlar"
+  },
   "today": "Bugün",
   "thisWeek": "Bu hafta",
   "last7Days": "Son 7 gün",
   "last30Days": "Son 30 gün",
   "thisMonth": "Son ay",
+  "send": "Gönder",
+  "name": "İsim",
+  "userName": "Kullanıcı adı",
+  "email_address": "E-posta adresi",
+  "auth": {
+    "enter_your_password": "Lütfen şifrenizi giriniz",
+    "password": "Şifre",
+    "forgot_password": "Şifremi unuttum",
+    "forgot_password_descriptions": "Katılırken kullandığınız e-posta adresini girin ve size şifrenizi sıfırlamak için talimatları gönderin.",
+    "sign_in": "Giriş",
+    "required": "Zorunlu alan",
+    "too_long": "Çok uzun",
+    "too_short": "Çok kısa",
+    "invalid_email": "Geçersiz mail adresi",
+    "remember_me": "Beni hatırla",
+    "logout": "Çıkış"
+  },
   "dashboard": {
     "title": "Dashboard",
     "teslimatPerformansRaporu": "Teslimat Performans Raporu",

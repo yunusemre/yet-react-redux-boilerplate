@@ -9,3 +9,9 @@
 .max-width-30 {
   max-width: 30rem;
 }
+
+.error {
+  input {
+    border: 1px solid var(--bs-danger);
+  }
+}

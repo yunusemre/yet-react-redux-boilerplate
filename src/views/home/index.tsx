@@ -1,8 +1,10 @@
 import './home.scss';
 
+import { Formik } from 'formik';
 import { memo } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import * as Yup from 'yup';
 import DashboardBox from './boxs';
 import Filter from './filter';
 
@@ -73,6 +75,21 @@ const Home = () => {
         <Card.Body>
           <Filter data={homeFilter} />
           <hr />
+          <Formik
+            initialValues={{
+              color: '',
+            }}
+            validationSchema={Yup.object().shape({
+              color: Yup.string().required(),
+            })}
+            onSubmit={(values: any) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+              }, 500);
+            }}
+          >
+            <Form></Form>
+          </Formik>
           <DashboardBox data={generateData(Math.ceil(Math.random() * 100))} />
         </Card.Body>
       </Card>

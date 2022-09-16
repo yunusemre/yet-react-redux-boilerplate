@@ -1,18 +1,21 @@
 import { Form, Formik } from 'formik';
 import { Button, Card, Container } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { TextField } from '../login/form';
+import { TextField } from '../../../components/form-elements';
+import Path from '../../../router/paths';
 
 const ForgotPasswordPage = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const SignupSchema = Yup.object().shape({
-    email: Yup.string().email('Invalid email').required('Required'),
+    email: Yup.string().email(t('auth.invalid_email')).required(t('auth.required')),
   });
   return (
     <Container className="py-5 py-sm-7">
-      <Link to="/auth/forgot-password" className="d-flex justify-content-center mb-5">
-        <img className="zi-2" src="/logo.png" alt="Image Description" />
+      <Link to={Path.forgot_password} className="d-flex justify-content-center mb-5">
+        <img className="zi-2" src="/logo.png" alt="Kolay gelsin" />
       </Link>
 
       <div className="mx-auto max-width-30">
@@ -25,38 +28,34 @@ const ForgotPasswordPage = () => {
               validationSchema={SignupSchema}
               onSubmit={(values) => {
                 alert(JSON.stringify(values, null, 2));
-                navigate('/auth/login');
+                navigate(Path.login);
               }}
             >
-              <Form>
-                <div className="text-center">
-                  <div className="mb-5">
-                    <h1 className="display-5">Forgot password</h1>
-                    <p>
-                      Enter the email address you used when you joined and well send you
-                      instructions to reset your password.
-                    </p>
-                  </div>
-                </div>
-                <TextField
-                  label="Your email"
-                  type="email"
-                  placeholder="Please enter your email address"
-                  id="email"
-                  name="email"
-                />
-                <div className="d-grid gap-2">
-                  <Button type="submit" variant="primary" className="w-100">
-                    Sign in
-                  </Button>
-
+              {({ isSubmitting }) => (
+                <Form>
                   <div className="text-center">
-                    <Link className="btn btn-link" to="/auth/login">
-                      <i className="fa-solid fa-angle-left"></i> Back to Sign in
-                    </Link>
+                    <div className="mb-5">
+                      <h1 className="display-5">{t('auth.forgot_password')}</h1>
+                      <p>
+                        {t('auth.forgot_password_descriptions')}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Form>
+                  <TextField label={t('email_address')} type="email" id="email" name="email" />
+                  <div className="d-grid gap-2">
+                    <Button disabled={isSubmitting} type="submit" variant="primary">
+                      <i className="fa-solid fa-paper-plane me-2"></i>
+                      <span>{t('send')}</span>
+                    </Button>
+
+                    <div className="text-center">
+                      <Link className="btn btn-link" to={Path.login}>
+                        <i className="fa-solid fa-angle-left"></i> {t('auth.sign_in')}
+                      </Link>
+                    </div>
+                  </div>
+                </Form>
+              )}
             </Formik>
           </Card.Body>
         </Card>
