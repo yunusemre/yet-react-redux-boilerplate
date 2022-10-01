@@ -6,6 +6,9 @@
   --body-color: #f8f8f8;
   --color: #333333;
   --bs-link-hover-color: #666;
+  --transitionTime: 0.3s;
+  --navbar-bg: #eee;
+  --field-border-color: #eeeeee;
 }
 
 $primary: #3baf29;
@@ -31,6 +34,14 @@ $menuOpenWidth: 250;
   cursor: pointer;
 }
 
+html,
+body,
+#kolaygelsin {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 html {
   height: -webkit-fill-available;
   zoom: 0;
@@ -39,13 +50,12 @@ body {
   margin: 0;
   padding: 0;
   font-size: var(--body-font-size);
-  background-color: var(--body-color);
   color: var(--color);
   font-family: var(--body-font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--body-color);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   @media screen and (max-width: 768px) {
     input[type='text'],
@@ -62,23 +72,26 @@ a {
 }
 
 .page-container {
-  width: calc(100% - 58px);
-  background: var(--body-color);
-  height: calc(var(--vh, 1vh) * 100 - 20px);
+  width: calc(100% - 68px);
+  margin-left: 68px;
+  height: 100%;
   padding: 10px 20px 0 20px;
   border-radius: 10px;
-  overflow: auto;
-  overflow-x: hidden;
+  transition: var(--transitionTime);
+
   &.open {
-    width: calc(100% - #{$menuOpenWidth}px);
+    width: calc(100% - #{$menuOpenWidth + 30}px);
+    margin-left: calc(#{$menuOpenWidth + 30}px);
   }
 
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 100% !important;
     display: block;
+    margin-left: 0px;
 
     &.open {
       width: 100%;
+      margin-left: 0;
     }
   }
 }

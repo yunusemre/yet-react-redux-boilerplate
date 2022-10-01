@@ -1,0 +1,50 @@
+.nav-link {
+  padding: 8px 0 8px 18px;
+  white-space: nowrap;
+  transition: var(--transitionTime);
+  border-radius: 6px;
+  margin-bottom: 6px;
+  margin-right: 8px;
+  margin-left: 2px;
+
+  &:hover {
+    color: var(--bs-primary);
+  }
+
+  &.selected {
+    color: white;
+    background-color: var(--bs-primary);
+  }
+
+  .nav-icons {
+    margin-right: 8px;
+    width: 18px;
+  }
+  .caret-icon {
+    right: 14px;
+    top: 10px;
+  }
+
+  & + .sub-menu {
+    list-style: none;
+    padding: 0px;
+    margin-left: 26px;
+    margin-right: 12px;
+  }
+
+  .tooltip {
+    position: absolute;
+    top: 0;
+    right: -100px;
+    background: #666;
+    padding: 5px;
+    font-size: 12px;
+    z-index: 100;
+  }
+}
+
+.parent-selected {
+  ul {
+    border-left: 2px solid darken(#cfcfcf, 10%);
+  }
+}

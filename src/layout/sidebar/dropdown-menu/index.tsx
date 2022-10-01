@@ -1,8 +1,8 @@
 import { Children, forwardRef, useState } from 'react';
 
 const CustomToggle = forwardRef(({ children, onClick, icon }: any, ref: any) => (
-  <div
-    className="nav_link d-flex justify-content-between c-pointer"
+  <span
+    className="nav-link d-flex justify-content-between c-pointer"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -10,10 +10,10 @@ const CustomToggle = forwardRef(({ children, onClick, icon }: any, ref: any) => 
     }}
   >
     <span className="first">
-      <i className={`nav_icon ${icon}`}></i>
-      <span className="nav_name">{children}</span>
+      <i className={`nav-icons ${icon}`}></i>
+      <span className="nav-name">{children}</span>
     </span>
-  </div>
+  </span>
 ));
 
 const CustomMenu = forwardRef(

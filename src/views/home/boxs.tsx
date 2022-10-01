@@ -10,7 +10,7 @@ const DashboardBoxComponent = ({ data }: any) => {
       <Row>
         {data.map(({ name, url, prefix, count }: any, index: number) => (
           <Col key={index} sm={12} md={6} lg={4} xl={4} className="mb-4">
-            <Link to={url} className="box">
+            <Link to={url} className="box position-relative">
               <Card className="card-hover-shadow">
                 <Card.Body>
                   <h1 className="display-3 bold">

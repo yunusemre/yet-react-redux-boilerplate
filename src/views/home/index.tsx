@@ -1,5 +1,6 @@
 import './home.scss';
 
+import { CanView } from '@hooks/permissions';
 import { Formik } from 'formik';
 import { memo } from 'react';
 import { Card, Form } from 'react-bootstrap';
@@ -70,7 +71,7 @@ const Home = () => {
   ];
   return (
     <div className="dashboard-page">
-      <h1 className="mb-3">{t('dashboard.title')}</h1>
+      <h1 className="mb-3">{t('home.title')}</h1>
       <Card>
         <Card.Body>
           <Filter data={homeFilter} />
@@ -90,7 +91,9 @@ const Home = () => {
           >
             <Form></Form>
           </Formik>
-          <DashboardBox data={generateData(Math.ceil(Math.random() * 100))} />
+          <CanView permission="dashboard">
+            <DashboardBox data={generateData(Math.ceil(Math.random() * 100))} />
+          </CanView>
         </Card.Body>
       </Card>
     </div>

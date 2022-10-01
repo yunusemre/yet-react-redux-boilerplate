@@ -4,6 +4,7 @@ const initialState = {
   menuOpen: true,
   name: 'Admin',
   loading: false,
+  permissions: { dashboard: true },
 };
 
 const appSlice = createSlice({
@@ -15,6 +16,9 @@ const appSlice = createSlice({
     },
     openMenu: (state) => {
       state.menuOpen = true;
+    },
+    getPermissions: (state) => {
+      state.permissions = { dashboard: !state.permissions.dashboard };
     },
   },
   // extraReducers: (builder) => {
@@ -28,5 +32,5 @@ const appSlice = createSlice({
   // },
 });
 
-export const { menuToggle, openMenu } = appSlice.actions;
+export const { menuToggle, openMenu, getPermissions } = appSlice.actions;
 export default appSlice.reducer;

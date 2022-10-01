@@ -21,6 +21,7 @@
     "i18next": "^21.9.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
+    "react-checkbox-tree": "^1.8.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^11.18.6",
@@ -28,6 +29,7 @@
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
     "react-select": "^5.4.0",
+    "react-toastify": "^9.0.8",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "typescript": "^4.8.3",
@@ -35,14 +37,15 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start PORT=3000",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --quiet --fix",
     "prettier": "prettier --write  \"src/**/*.{ts,tsx,html,css,scss}\"",
     "linter": "npm run prettier && npm run lint",
+    "prepare": "husky install",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -60,6 +63,14 @@
           "import/no-anonymous-default-export": "off",
           "@typescript-eslint/consistent-type-assertions": "off"
         }
+      },
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
       }
     ]
   },
@@ -76,20 +87,22 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.10",
-    "@storybook/addon-essentials": "^6.4.22",
-    "@storybook/addon-interactions": "^6.5.10",
-    "@storybook/addon-links": "^6.5.10",
-    "@storybook/builder-webpack5": "^6.5.10",
-    "@storybook/manager-webpack5": "^6.5.10",
-    "@storybook/node-logger": "^6.5.10",
-    "@storybook/preset-create-react-app": "^1.2.0",
-    "@storybook/react": "^6.1.21",
+    "@babel/plugin-transform-react-jsx-source": "^7.18.6",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-webpack5": "^6.5.12",
+    "@storybook/manager-webpack5": "^6.5.12",
+    "@storybook/node-logger": "^6.5.12",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/react": "^12.1.2",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "customize-cra": "^1.0.0",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard-with-typescript": "^22.0.0",
@@ -102,11 +115,12 @@
     "eslint-plugin-storybook": "^0.6.4",
     "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
-    "node-sass": "^6.0.1",
+    "sass": "1.55.0",
     "postcss": "^8.2.4",
     "postcss-import": "^14.0.0",
     "prettier": "^2.5.1",
     "prop-types": "^15.8.1",
+    "react-app-rewired": "^2.2.1",
     "source-map-explorer": "^2.5.2",
     "typescript": "^4.7.4",
     "webpack": "^5.74.0"

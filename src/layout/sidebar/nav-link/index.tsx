@@ -1,8 +1,10 @@
+import './nav-link.scss';
+
+import { openMenu } from '@store/features/appSlice';
+import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { useEffect, useState } from 'react';
-import Collapse from 'react-bootstrap/Collapse';
+import { Collapse, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import { openMenu } from '../../../store/features/appSlice';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 
 interface NavLinkMenuType {
   path: string;
@@ -39,36 +41,57 @@ export const NavLinkMenu = ({
   }, [menuState]);
 
   return (
-    <li className="position-relative">
+    <li className={`position-relative ${open ? 'parent-selected' : ''}`}>
       {path !== '' && children.length === 0 ? (
         <NavLink
           title={title}
+          data-name={title}
+          data-path={path}
           to={path}
           className={(navData) =>
-            'nav_link d-flex justify-content-between' + (navData.isActive ? ' selected' : '')
+            'nav-link d-flex justify-content-between' + (navData.isActive ? ' selected' : '')
           }
         >
-          <span className="first">
-            <i className="nav_icon fa-solid fa-envelope"></i>
-            <span className="nav_name">{title}</span>
-          </span>
+          {!menuState ? (
+            <OverlayTrigger placement="right" overlay={<Tooltip>{title}</Tooltip>}>
+              <span className="first">
+                <i className="nav-icons fa-solid fa-envelope"></i>
+                <span className="nav-name">{title}</span>
+              </span>
+            </OverlayTrigger>
+          ) : (
+            <span className="first">
+              <i className="nav-icons fa-solid fa-envelope"></i>
+              <span className="nav-name">{title}</span>
+            </span>
+          )}
         </NavLink>
       ) : (
         <a
-          className="nav_link c-pointer d-block"
+          className="nav-link c-pointer d-block"
           onClick={() => {
             setOpen(!open);
             if (!menuState) dispatch(openMenu());
           }}
         >
-          <span className="first">
-            <i className="nav_icon fa-solid fa-envelope"></i>
-            <span className="nav_name">{title}</span>
-          </span>
+          {!menuState ? (
+            <OverlayTrigger placement="right" overlay={<Tooltip>{title}</Tooltip>}>
+              <span className="first">
+                <i className="nav-icons fa-solid fa-envelope"></i>
+                <span className="nav-name">{title}</span>
+              </span>
+            </OverlayTrigger>
+          ) : (
+            <span className="first">
+              <i className="nav-icons fa-solid fa-envelope"></i>
+              <span className="nav-name">{title}</span>
+            </span>
+          )}
+
           <span className="last" onClick={() => setOpen(!open)}>
             {isOpen && children.length > 0 && (
               <i
-                className={`position-absolute caret_icon fa-sharp fa-solid ${
+                className={`position-absolute caret-icon fa-sharp fa-solid ${
                   open ? 'fa-angle-up' : 'fa-angle-down'
                 }`}
               ></i>
@@ -78,7 +101,7 @@ export const NavLinkMenu = ({
       )}
 
       <Collapse in={open}>
-        <ul className="sub-menu">
+        <ul className="sub-menu p-0">
           {children.map((sub: any, index: number) => (
             <NavLinkMenu key={index} {...sub} />
           ))}

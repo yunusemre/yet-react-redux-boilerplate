@@ -14,6 +14,7 @@
   "email_address": "E-posta adresi",
   "required": "Zorunlu alan",
   "close": "Kapat",
+  "save": "Kaydet",
   "auth": {
     "enter_your_password": "Lütfen şifrenizi giriniz",
     "password": "Şifre",
@@ -25,7 +26,10 @@
     "invalid_email": "Geçersiz mail adresi",
     "remember_me": "Beni hatırla",
     "logout": "Çıkış",
-    "both_password": "Her iki şifrenin de aynı olması gerekiyor"
+    "both_password": "Her iki şifrenin de aynı olması gerekiyor",
+    "new_password": "Yeni şifre",
+    "new_password_again": "Yeni şifre tekrar",
+    "validation_code": "Aktivasyon kodu"
   },
   "dashboard": {
     "title": "Dashboard",
@@ -35,8 +39,17 @@
     "dagitimaCikmayanGonderilerRaporu": "Dağıtıma Çıkmayan Gönderiler Raporu",
     "fizikenGelmeyenGonderiler": "Fiziken Gelmeyen Gönderiler"
   },
+  "home": {
+    "title": "Anasayfa"
+  },
+  "notifications": {
+    "title": "Notifications"
+  },
   "profile": {
-    "title": "Profile"
+    "title": "Profil"
+  },
+  "roles": {
+    "title": "Roller"
   },
   "shipmentOperations": {
     "shipmentOperationsSaved": {

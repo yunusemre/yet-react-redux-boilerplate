@@ -8,18 +8,22 @@ export const TextPasswordField = ({ label, ...props }: any) => {
   const [togglePassword, setTogglePassword] = useState<boolean>(false);
   const [field, meta] = useField(props);
   return (
-    <div className={`mb-4 row form-group ${meta.touched && meta.error ? 'error' : ''}`}>
+    <div
+      className={`${props.horizontal ? 'row' : ''} mb-2 form-group ${
+        meta.touched && meta.error ? 'error' : ''
+      }`}
+    >
       {label && (
-        <label htmlFor={props.id} className="form-label col-sm-3">
+        <label htmlFor={props.id} className={`form-label ${props.horizontal ? 'col-sm-3' : ''}`}>
           {label}
         </label>
       )}
-      <div className="position-relative col-sm-9">
+      <div className={`position-relative ${props.horizontal ? 'col-sm-9' : ''}`}>
         <Field
           type={togglePassword ? 'text' : 'password'}
           {...props}
           {...field}
-          className="form-control"
+          className="form-control  form-control-sm"
         />
         <i
           className={`position-absolute c-pointer password-eye ${
@@ -36,14 +40,18 @@ export const TextPasswordField = ({ label, ...props }: any) => {
 export const TextField = ({ label, children, ...props }: any) => {
   const [field, meta] = useField(props);
   return (
-    <div className={`mb-4 row form-group ${meta.touched && meta.error ? 'error' : ''}`}>
+    <div
+      className={`${props.horizontal ? 'row' : ''} mb-2 form-group ${
+        meta.touched && meta.error ? 'error' : ''
+      }`}
+    >
       {label && (
         <label htmlFor={props.id} className="form-label col-sm-3">
           {label}
         </label>
       )}
-      <div className="position-relative col-sm-9">
-        <Field {...field} {...props} className="form-control" />
+      <div className={`position-relative ${props.horizontal ? 'col-sm-9' : ''}`}>
+        <Field {...field} {...props} className="form-control form-control-sm" />
         <ErrorMessage component="span" className="text-danger" name={props.name} />
       </div>
     </div>
@@ -54,7 +62,7 @@ export const CheckOrRadioField = ({ label, children, ...props }: any) => {
   const [field, meta] = useField(props);
   return (
     <>
-      <div className={`mb-4 form-check ${meta.touched && meta.error ? 'error' : ''}`}>
+      <div className={`mb-2 form-check ${meta.touched && meta.error ? 'error' : ''}`}>
         <label htmlFor={props.id} className="form-check-label">
           <Field {...field} {...props} />
           {label}
@@ -67,23 +75,34 @@ export const CheckOrRadioField = ({ label, children, ...props }: any) => {
 
 export const SelectField = ({ label, name, data, ...props }: any) => {
   const [field, meta] = useField(props);
+  const customStyles = {
+    control: (base: any, state: any) => ({
+      ...base,
+      boxShadow: state.isFocused ? '0 0 1rem 0 rgb(140 152 164 / 25%)' : 0,
+    }),
+  };
   return (
-    <div className="mb-4">
-      <span className="d-flex justify-content-between">
-        <label htmlFor={props.id} className="form-label">
+    <div
+      className={`${props.horizontal ? 'row' : ''} mb-2 form-group ${meta.error ? 'error' : ''}`}
+    >
+      {label && (
+        <label htmlFor={props.id} className="form-label col-sm-3">
           {label}
         </label>
-      </span>
-      <Field as={Select} name={name}>
-        {data.map((val: any, index: number) => (
-          <option key={index} value={val.value}>
-            {val.name}
-          </option>
-        ))}
-      </Field>
-      <ErrorMessage component="span" className="text-danger" name={props.name} />
+      )}
+      <div className={`position-relative ${props.horizontal ? 'col-sm-9' : ''}`}>
+        <Field
+          className="select-field"
+          as={Select}
+          classNamePrefix="react-select"
+          options={data}
+          styles={customStyles}
+          name={name}
+          id={props.id}
+          {...props}
+        />
+        <ErrorMessage component="span" className="text-danger" name={name} />
+      </div>
     </div>
   );
 };
-
-// .was-validated :invalid~.invalid-feedback, .was-validated :invalid~.invalid-tooltip

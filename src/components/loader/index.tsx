@@ -2,9 +2,8 @@ import './loader.scss';
 
 const Loader = () => {
   return (
-    <div className="loader-container">
-      <img width="50" src="/favicon.ico" alt="Loading" />
-      <div className="loading" />
+    <div className="loader-wrapper">
+      <div className="loader"></div>
     </div>
   );
 };

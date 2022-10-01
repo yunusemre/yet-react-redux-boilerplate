@@ -1,9 +1,9 @@
+import { TextField, TextPasswordField, UiButton } from '@components/ui';
 import { Form, Formik } from 'formik';
 import { Alert, Button, Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { TextField, TextPasswordField } from '../../../components/form-elements';
 
 const ApproveForgetPassword = ({
   showModal,
@@ -26,9 +26,11 @@ const ApproveForgetPassword = ({
 
   return (
     <Modal show={showModal}>
-      <Alert variant="primary" className="rounded-0">
-        Doğrulama kodunuz, sisteme kayıtlı onaylanmış iletişim bilgileriniz(Email/Gsm) üzerinden
-        gönderildi.
+      <Alert variant="warning" className="rounded-0">
+        <h5>
+          Doğrulama kodunuz, sisteme kayıtlı onaylanmış iletişim bilgileriniz(Email/Gsm) üzerinden
+          gönderildi.
+        </h5>
       </Alert>
       <Formik
         initialValues={{
@@ -43,28 +45,40 @@ const ApproveForgetPassword = ({
         }}
       >
         <Form>
-          <Modal.Body className="pt-1 pb-1">
-            <TextField
-              label="Doğrulama Kodu"
-              type="number"
-              id="verificationCode"
-              name="verificationCode"
-            />
-            <TextPasswordField label="Yeni Şifre" id="newPassword" name="newPassword" />
-            <TextPasswordField
-              label="Yeni Şifre Tekrar"
-              id="newPasswordAgain"
-              name="newPasswordAgain"
-            />
+          <Modal.Body className="pt-1 pb-1 ps-3 pe-3">
+            <>
+              <TextField
+                label={t('auth.validation_code')}
+                type="number"
+                id="verificationCode"
+                horizontal="true"
+                name="verificationCode"
+              />
+              <TextPasswordField
+                label={t('auth.new_password')}
+                horizontal="true"
+                id="newPassword"
+                name="newPassword"
+              />
+              <TextPasswordField
+                label={t('auth.new_password_again')}
+                id="newPasswordAgain"
+                horizontal="true"
+                name="newPasswordAgain"
+              />
+            </>
           </Modal.Body>
-          <Modal.Footer className="border-0 pt-1">
-            <Button variant="outline-primary" size="sm" onClick={handleClose}>
+          <Modal.Footer className="border-0">
+            <Button variant="outline-primary" className="btn-sm" onClick={handleClose}>
               {t('close')}
             </Button>
-            <Button type="submit" variant="primary" size="sm">
-              <i className="fa-solid fa-paper-plane me-2"></i>
-              <span>{t('send')}</span>
-            </Button>
+            <UiButton
+              type="submit"
+              text={t('send')}
+              icon="fa-solid fa-paper-plane"
+              variant="primary"
+              className="btn-sm me-0"
+            />
           </Modal.Footer>
         </Form>
       </Formik>

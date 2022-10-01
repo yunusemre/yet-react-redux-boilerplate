@@ -11,5 +11,11 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="kolaygelsin"></div>
+    <script>
+      var isNavigator = navigator.userAgentData.mobile;
+      if (isNavigator) {
+        document.body.classList.add('mobile');
+      }
+    </script>
   </body>
 </html>

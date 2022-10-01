@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import API from '../api';
 
 export const initAPIInterceptor = (store: any): void => {
@@ -66,15 +67,15 @@ const showError = ({ error = {}, status }: any) => {
     }
   }
 
-  // toast(`${title} - ${message}`, {
-  //   position: 'top-right',
-  //   autoClose: 5000,
-  //   hideProgressBar: false,
-  //   closeOnClick: true,
-  //   pauseOnHover: true,
-  //   draggable: true,
-  //   progress: undefined,
-  // });
+  toast.error(`${title} - ${message}`, {
+    position: 'top-right',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
 
   return { message, title };
 };

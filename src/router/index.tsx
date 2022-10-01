@@ -1,13 +1,17 @@
 import { lazy } from 'react';
 import { Navigate, useRoutes } from 'react-router-dom';
+import Path from './paths';
 
 const Layout = lazy(() => import('../layout'));
-const PageLayout = lazy(() => import('../layout/pages/page-layout'));
+const PageLayout = lazy(() => import('@layout/pages/page-layout'));
+const LoginPage = lazy(() => import('@layout/pages/login'));
+const ForgotPasswordPage = lazy(() => import('@layout/pages/forgot-password'));
+const Page404 = lazy(() => import('@layout/pages/404-page'));
 const Home = lazy(() => import('../views/home'));
-const LoginPage = lazy(() => import('../layout/pages/login'));
-const ForgotPasswordPage = lazy(() => import('../layout/pages/forgot-password'));
-const Page404 = lazy(() => import('../layout/pages/404-page'));
-const ProfilePage = lazy(() => import('../layout/pages/profile'));
+const Dashboard = lazy(() => import('../views/dashboard'));
+const ProfilePage = lazy(() => import('@layout/pages/profile'));
+const Roles = lazy(() => import('@layout/pages/roles'));
+const NotificationPage = lazy(() => import('@layout/pages/notifications'));
 
 const ProjectRouter = (): any => {
   const route: any = useRoutes([
@@ -19,16 +23,24 @@ const ProjectRouter = (): any => {
           element: <Navigate to="/home" replace />,
         },
         {
-          path: '/home',
+          path: Path.home,
           element: <Home />,
         },
         {
-          path: '/dashboard',
-          element: <Home />,
+          path: Path.dashboard,
+          element: <Dashboard />,
         },
         {
-          path: '/profile',
+          path: Path.profile,
           element: <ProfilePage />,
+        },
+        {
+          path: Path.roles,
+          element: <Roles />,
+        },
+        {
+          path: Path.notifications,
+          element: <NotificationPage />,
         },
       ],
     },
