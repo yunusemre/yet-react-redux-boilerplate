@@ -1,102 +1,97 @@
 import './home.scss';
 
-import { CanView } from '@hooks/permissions';
+import { apiPath } from '@api/api-path';
+import { UiBox, UiButton, UiDatepicker } from '@components/ui';
+import { LoaderWrapper } from '@components/ui/loader/loader-wrapper';
+import PageContainer from '@layout/pages/page-layout/page-container';
+import useAxios from 'axios-hooks';
 import { Formik } from 'formik';
 import { memo } from 'react';
-import { Card, Form } from 'react-bootstrap';
+import { Card, Col, Form, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import * as Yup from 'yup';
 import DashboardBox from './boxs';
 import Filter from './filter';
 
 const Home = () => {
   const { t } = useTranslation();
-  const generateData = (val: number) => {
-    const dashboardData = [
-      {
-        name: 'dashboard.teslimatPerformansRaporu',
-        count: val,
-        url: '#',
-        prefix: '',
-      },
-      {
-        name: 'dashboard.teslimEdilememisGönderilerRaporu',
-        count: val,
-        url: '#',
-        prefix: '%',
-      },
-      {
-        name: 'dashboard.teslimEdilmisGönderilerRaporu',
-        count: val,
-        url: '#',
-        prefix: '',
-      },
-      {
-        name: 'dashboard.dagitimaCikmayanGonderilerRaporu',
-        count: val,
-        url: '#',
-        prefix: '',
-      },
-      {
-        name: 'dashboard.fizikenGelmeyenGonderiler',
-        count: val,
-        url: '#',
-        prefix: '',
-      },
-    ];
-    return dashboardData;
+  const [{ response, loading }, executePost]: any = useAxios({
+    url: apiPath.getCorporateCustomerDashboardReports,
+    method: 'post',
+    data: {
+      ReportEndDate: '2022-10-18T00:00:00+03:00',
+      ReportStartDate: '2021-10-23T00:00:00+03:00',
+    },
+  });
+
+  const initialValues = {
+    Start: '',
   };
 
-  const homeFilter = [
-    {
-      name: 'today',
-      value: 1,
-    },
-    {
-      name: 'thisWeek',
-      value: 2,
-    },
-    {
-      name: 'last7Days',
-      value: 3,
-    },
-    {
-      name: 'last30Days',
-      value: 4,
-    },
-    {
-      name: 'thisMonth',
-      value: 5,
-    },
-  ];
   return (
-    <div className="dashboard-page">
-      <h1 className="mb-3">{t('home.title')}</h1>
+    <PageContainer name="home" title={t('HOME.TITLE')}>
       <Card>
         <Card.Body>
-          <Filter data={homeFilter} />
-          <hr />
           <Formik
-            initialValues={{
-              color: '',
-            }}
-            validationSchema={Yup.object().shape({
-              color: Yup.string().required(),
-            })}
-            onSubmit={(values: any) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-              }, 500);
+            initialValues={initialValues}
+            onSubmit={(value) => {
+              executePost({
+                data: {
+                  data: {
+                    ReportEndDate: value?.Start[1],
+                    ReportStartDate: value?.Start[0],
+                  },
+                },
+              });
             }}
           >
-            <Form></Form>
+            {({ isSubmitting, handleSubmit, values, setFieldValue, resetForm }) => (
+              <Form onSubmit={handleSubmit}>
+                <Row>
+                  <Col xs={12} lg={4}>
+                    <Filter
+                      onChange={(val: any) => {
+                        console.log(val);
+                        handleSubmit();
+                      }}
+                    />
+                  </Col>
+                  <Col xs={12} lg={6}>
+                    <UiDatepicker
+                      name="Start"
+                      label="Rapor Tarihi Aralığı"
+                      horizontal="true"
+                      range
+                      numberOfMonths={2}
+                      format="DD/MM/YYYY"
+                      className="green"
+                      containerClassName="w-100"
+                      onChange={(array: any[]) => {
+                        setFieldValue('Start', [array[0]?.format(), array[1]?.format()]);
+                      }}
+                    />
+                  </Col>
+                  <Col md={4} sm={6} xs={12} lg={2}>
+                    <UiButton
+                      type="submit"
+                      text="Filter"
+                      icon="fa-solid fa-search"
+                      variant="primary"
+                      className="btn-sm me-1"
+                      loading={loading}
+                    />
+                  </Col>
+                </Row>
+              </Form>
+            )}
           </Formik>
-          <CanView permission="dashboard">
-            <DashboardBox data={generateData(Math.ceil(Math.random() * 100))} />
-          </CanView>
+          <UiBox className="mt-2">
+            <LoaderWrapper loaded={loading}>
+              <DashboardBox data={response?.Payload} />
+            </LoaderWrapper>
+          </UiBox>
         </Card.Body>
       </Card>
-    </div>
+    </PageContainer>
   );
 };
 

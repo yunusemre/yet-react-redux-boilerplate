@@ -4,8 +4,11 @@ const Path = {
   profile: '/profile',
   home: '/home',
   dashboard: '/dashboard',
-  roles: '/roles',
+  roles: '/users/permission',
   notifications: '/notifications',
+  teamLeader: '/hubs/team-lider',
 };
 
+const win: any = window;
+win.Path = Path;
 export default Path;

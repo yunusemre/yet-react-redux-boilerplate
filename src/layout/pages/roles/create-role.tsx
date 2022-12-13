@@ -1,15 +1,18 @@
-import { SelectField, TextField, UiButton } from '@components/ui';
+import { UiButton, UiTextField } from '@components/ui';
 import { Form, Formik } from 'formik';
 import { Button, Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 
 const CreateRole = ({
+  role,
   showModal,
   handleClose,
 }: {
+  role: any;
   showModal: boolean;
-  handleClose?: () => void;
+  handleClose?: any;
 }) => {
   const { t } = useTranslation();
   const selectOptions = [
@@ -22,84 +25,67 @@ const CreateRole = ({
     { value: 7, label: 'Network Planlama ve Kapasite Yönetimi Sorumlusu' },
     { value: 8, label: 'Yükleme MOY' },
     { value: 9, label: 'Operasyon Merkezi Görevlisi' },
-    { value: 1, label: 'Back-up Moy' },
-    { value: 1, label: 'SOM Görevlisi' },
-    { value: 1, label: 'Operasyon Geliştirme Sorumlusu' },
-    { value: 1, label: 'Çağrı Merkezi Sorumlusu' },
-    { value: 1, label: 'Çağrı Merkezi Temsilcisi' },
-    { value: 1, label: 'Planlama ve İş Geliştirme Direktörü' },
-    { value: 1, label: 'İnsan Kaynakları Direktörü' },
-    { value: 1, label: 'İnsan Kaynakları Sorumlusu' },
-    { value: 1, label: 'Strateji Organizasyon Yöneticisi' },
-    { value: 1, label: 'Operasyon Yöneticisi' },
-    { value: 2, label: 'Kurumsal Müşteri Personeli' },
-    { value: 2, label: 'Bölge Operasyon Sorumlusu' },
-    { value: 2, label: 'Küçük Müşteriler' },
-    { value: 2, label: 'IT OBSERVER' },
+    { value: 10, label: 'Back-up Moy' },
+    { value: 11, label: 'SOM Görevlisi' },
+    { value: 12, label: 'Operasyon Geliştirme Sorumlusu' },
+    { value: 13, label: 'Çağrı Merkezi Sorumlusu' },
+    { value: 14, label: 'Çağrı Merkezi Temsilcisi' },
+    { value: 15, label: 'Planlama ve İş Geliştirme Direktörü' },
+    { value: 16, label: 'İnsan Kaynakları Direktörü' },
+    { value: 17, label: 'İnsan Kaynakları Sorumlusu' },
+    { value: 18, label: 'Strateji Organizasyon Yöneticisi' },
+    { value: 19, label: 'Operasyon Yöneticisi' },
+    { value: 20, label: 'Kurumsal Müşteri Personeli' },
+    { value: 21, label: 'Bölge Operasyon Sorumlusu' },
+    { value: 22, label: 'Küçük Müşteriler' },
+    { value: 23, label: 'IT OBSERVER' },
   ];
   const ForgotPasswordSchema = Yup.object().shape({
-    verificationCode: Yup.number().required(t('required')),
-    newPassword: Yup.string().required(t('required')),
-    selectsss: Yup.string().required(t('required')),
-    newPasswordAgain: Yup.string().when('newPassword', {
-      is: (val: any) => val?.length > 0,
-      then: Yup.string().oneOf([Yup.ref('newPassword')], t('auth.both_password')),
-    }),
+    RoleId: Yup.string().required(t('REQUIRED')),
+    Description: Yup.string().required(t('REQUIRED')),
   });
 
   return (
-    <Modal show={showModal}>
+    <Modal show={showModal} onHide={handleClose}>
       <Formik
         initialValues={{
-          verificationCode: '',
-          newPassword: '',
-          newPasswordAgain: '',
-          selectsss: 'Planlama ve İş Geliştirme Yöneticisi',
+          RoleId: role?.label ?? '',
+          Description: role?.label ?? '',
         }}
         validationSchema={ForgotPasswordSchema}
         onSubmit={(values) => {
-          console.log('forgot', values);
-          // navigate(Path.login);
+          toast.success('Rol bilgileriniz güncellendi');
+          handleClose();
         }}
       >
-        <Form>
-          <Modal.Header className="ps-4 pe-4">
-            <h2>Rol Yetki</h2>
-          </Modal.Header>
-          <Modal.Body className="pt-1 pb-1 ps-3 pe-3">
-            <SelectField
-              horizontal="true"
-              label="lable"
-              name="selectsss"
-              id="selectsss"
-              data={selectOptions}
-            />
-            <TextField
-              label="Rol adı"
-              id="verificationCode"
-              horizontal="true"
-              name="verificationCode"
-            />
-            <TextField
-              label="Rol açıklaması"
-              horizontal="true"
-              id="role-description"
-              name="role-description"
-            />
-          </Modal.Body>
-          <Modal.Footer className="border-0">
-            <Button variant="outline-primary" className="btn-sm" onClick={handleClose}>
-              {t('close')}
-            </Button>
-            <UiButton
-              type="submit"
-              text={t('save')}
-              icon="fa-solid fa-paper-plane"
-              variant="primary"
-              className="btn-sm me-0"
-            />
-          </Modal.Footer>
-        </Form>
+        {({ handleSubmit }) => (
+          <Form onSubmit={handleSubmit}>
+            <Modal.Header className="ps-4 pe-4" closeButton>
+              <h2>Rol Yetki</h2>
+            </Modal.Header>
+            <Modal.Body className="pt-1 pb-1 ps-3 pe-3">
+              <UiTextField label="Rol adı" horizontal="true" id="RoleId" name="RoleId" />
+              <UiTextField
+                horizontal="true"
+                label="Rol açıklaması"
+                id="Description"
+                name="Description"
+              />
+            </Modal.Body>
+            <Modal.Footer className="border-0">
+              <Button variant="outline-primary" className="btn-sm" onClick={handleClose}>
+                {t('CLOSE')}
+              </Button>
+              <UiButton
+                type="submit"
+                text={t('SAVE')}
+                icon="fa-solid fa-paper-plane"
+                variant="primary"
+                className="btn-sm me-0"
+              />
+            </Modal.Footer>
+          </Form>
+        )}
       </Formik>
     </Modal>
   );

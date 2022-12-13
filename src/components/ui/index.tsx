@@ -1,4 +1,27 @@
 import { UiButton } from './button';
-import { CheckOrRadioField, SelectField, TextField, TextPasswordField } from './form-elements';
+import UiBox from './container';
+import { UiDatepicker } from './datepicker';
 
-export { UiButton, TextPasswordField, TextField, CheckOrRadioField, SelectField };
+import {
+  UiCheckOrRadioField,
+  UiTextAreaField,
+  UiTextField,
+  UiTextPasswordField,
+  UiTextReactSelectField,
+  UiTextSelectField,
+} from './form-elements';
+
+import UiTable from './table';
+
+export {
+  UiBox,
+  UiButton,
+  UiDatepicker,
+  UiTextField,
+  UiTextAreaField,
+  UiTextReactSelectField,
+  UiTextPasswordField,
+  UiCheckOrRadioField,
+  UiTable,
+  UiTextSelectField,
+};

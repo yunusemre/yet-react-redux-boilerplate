@@ -1,5 +1,5 @@
-import { withPermission } from './permissionHOC';
-import CanView from './permissionView';
-import { usePermission } from './usePermission';
+import { withPermission } from './permission-HOC';
+import CanView from './permission-view';
+import { usePermission } from './use-permission';
 
 export { usePermission, CanView, withPermission };

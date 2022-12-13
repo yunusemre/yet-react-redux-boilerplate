@@ -1,14 +1,14 @@
-import { useAppSelector } from '@store/hooks';
+import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { Outlet } from 'react-router-dom';
 import { Sidebar } from './sidebar';
 
 const Layout = () => {
-  const menuState = useAppSelector((state) => state.app.menuOpen);
-
+  const { menuOpen } = useAppSelector((state) => state.app);
+  const dispatch = useAppDispatch();
   return (
     <div className="wrapper">
       <Sidebar />
-      <div className={`page-container${menuState ? ' open' : ''}`}>
+      <div className={`page-container${menuOpen ? ' open' : ''}`}>
         <Outlet />
       </div>
     </div>

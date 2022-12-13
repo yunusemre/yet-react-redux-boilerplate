@@ -7,11 +7,13 @@ const PageLayout = lazy(() => import('@layout/pages/page-layout'));
 const LoginPage = lazy(() => import('@layout/pages/login'));
 const ForgotPasswordPage = lazy(() => import('@layout/pages/forgot-password'));
 const Page404 = lazy(() => import('@layout/pages/404-page'));
-const Home = lazy(() => import('../views/home'));
-const Dashboard = lazy(() => import('../views/dashboard'));
 const ProfilePage = lazy(() => import('@layout/pages/profile'));
 const Roles = lazy(() => import('@layout/pages/roles'));
 const NotificationPage = lazy(() => import('@layout/pages/notifications'));
+const Home = lazy(() => import('@views/home'));
+const ShipmentsShipment = lazy(() => import('@views/shipments/shipment'));
+const ShipmentsTrack = lazy(() => import('@views/shipments/track'));
+const TeamLeader = lazy(() => import('@views/hubs/team-leader'));
 
 const ProjectRouter = (): any => {
   const route: any = useRoutes([
@@ -20,15 +22,11 @@ const ProjectRouter = (): any => {
       children: [
         {
           path: '/',
-          element: <Navigate to="/home" replace />,
+          element: <Navigate to={Path.home} replace />,
         },
         {
           path: Path.home,
           element: <Home />,
-        },
-        {
-          path: Path.dashboard,
-          element: <Dashboard />,
         },
         {
           path: Path.profile,
@@ -41,6 +39,28 @@ const ProjectRouter = (): any => {
         {
           path: Path.notifications,
           element: <NotificationPage />,
+        },
+        {
+          path: 'shipments',
+          children: [
+            {
+              path: 'shipment',
+              element: <ShipmentsShipment />,
+            },
+            {
+              path: 'track',
+              element: <ShipmentsTrack />,
+            },
+          ],
+        },
+        {
+          path: 'hubs',
+          children: [
+            {
+              path: 'team-leader',
+              element: <TeamLeader />,
+            },
+          ],
         },
       ],
     },

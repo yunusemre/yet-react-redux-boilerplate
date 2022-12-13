@@ -1,11 +1,11 @@
 import { Card, Table } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import PageContainer from '../page-layout/page-container';
 
 const NotificationPage = () => {
   const { t } = useTranslation();
   return (
-    <div className="profile-page">
-      <h1 className="mb-3">{t('notifications.title')}</h1>
+    <PageContainer name="notification" title={t('NOTIFICATIONS.TITLE')}>
       <Card className="mb-3">
         <Card.Body>
           <Table striped>
@@ -39,7 +39,7 @@ const NotificationPage = () => {
           </Table>
         </Card.Body>
       </Card>
-    </div>
+    </PageContainer>
   );
 };
 

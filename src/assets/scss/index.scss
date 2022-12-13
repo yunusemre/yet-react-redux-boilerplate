@@ -46,6 +46,7 @@ html {
   height: -webkit-fill-available;
   zoom: 0;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -75,7 +76,7 @@ a {
   width: calc(100% - 68px);
   margin-left: 68px;
   height: 100%;
-  padding: 10px 20px 0 20px;
+  padding: 20px 30px 20px 30px;
   border-radius: 10px;
   transition: var(--transitionTime);
 
@@ -85,6 +86,7 @@ a {
   }
 
   @media screen and (max-width: 768px) {
+    padding: 20px 20px 0 20px;
     width: 100% !important;
     display: block;
     margin-left: 0px;

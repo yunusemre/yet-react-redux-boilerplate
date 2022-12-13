@@ -1,17 +1,19 @@
 .password-eye {
-  top: 14px;
+  top: 11px;
   right: 20px;
+  z-index: 10;
 }
 
 .error {
   select {
     border: 1px solid var(--bs-danger);
   }
-  // .react-select {
-  //   &__control {
-  //     border-color: var(--bs-danger) !important;
-  //   }
-  // }
+
+  .react-select {
+    &__control {
+      border-color: var(--bs-danger) !important;
+    }
+  }
 }
 
 .react-select {

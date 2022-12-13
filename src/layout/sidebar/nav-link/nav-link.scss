@@ -1,11 +1,13 @@
-.nav-link {
-  padding: 8px 0 8px 18px;
+.nav-links {
+  padding: 8px 0 8px 16px;
   white-space: nowrap;
   transition: var(--transitionTime);
   border-radius: 6px;
   margin-bottom: 6px;
   margin-right: 8px;
   margin-left: 2px;
+  font-size: 14px;
+  color: var(--bs-nav-link-color);
 
   &:hover {
     color: var(--bs-primary);
@@ -22,7 +24,7 @@
   }
   .caret-icon {
     right: 14px;
-    top: 10px;
+    top: 12px;
   }
 
   & + .sub-menu {
@@ -30,6 +32,16 @@
     padding: 0px;
     margin-left: 26px;
     margin-right: 12px;
+
+    i {
+      display: none;
+    }
+
+    a {
+      &:hover {
+        font-weight: bold;
+      }
+    }
   }
 
   .tooltip {
@@ -44,7 +56,8 @@
 }
 
 .parent-selected {
-  ul {
-    border-left: 2px solid darken(#cfcfcf, 10%);
-  }
+  border-radius: 6px;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+  background: #e9e9e9;
 }

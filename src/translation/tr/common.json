@@ -1,59 +1,56 @@
 {
-  "welcome": "Merhaba",
-  "menu": {
-    "options": "Ayarlar"
+  "WELCOME": "Merhaba",
+  "MENU": {
+    "OPTIONS": "Ayarlar"
   },
-  "today": "Bugün",
-  "thisWeek": "Bu hafta",
-  "last7Days": "Son 7 gün",
-  "last30Days": "Son 30 gün",
-  "thisMonth": "Son ay",
-  "send": "Gönder",
-  "name": "İsim",
-  "userName": "Kullanıcı adı",
-  "email_address": "E-posta adresi",
-  "required": "Zorunlu alan",
-  "close": "Kapat",
-  "save": "Kaydet",
-  "auth": {
-    "enter_your_password": "Lütfen şifrenizi giriniz",
-    "password": "Şifre",
-    "forgot_password": "Şifremi unuttum",
-    "forgot_password_descriptions": "Katılırken kullandığınız e-posta adresini girin ve size şifrenizi sıfırlamak için talimatları gönderin.",
-    "sign_in": "Giriş",
-    "too_long": "Çok uzun",
-    "too_short": "Çok kısa",
-    "invalid_email": "Geçersiz mail adresi",
-    "remember_me": "Beni hatırla",
-    "logout": "Çıkış",
-    "both_password": "Her iki şifrenin de aynı olması gerekiyor",
-    "new_password": "Yeni şifre",
-    "new_password_again": "Yeni şifre tekrar",
-    "validation_code": "Aktivasyon kodu"
+  "TODAY": "Bugün",
+  "THISWEEK": "Bu hafta",
+  "LAST7DAYS": "Son 7 gün",
+  "LAST30DAYS": "Son 30 gün",
+  "THISMONTH": "Son ay",
+  "SEND": "Gönder",
+  "NAME": "İsim",
+  "USERNAME": "Kullanıcı adı",
+  "EMAIL_ADDRESS": "E-posta adresi",
+  "REQUIRED": "Zorunlu alan",
+  "CLOSE": "Kapat",
+  "SAVE": "Kaydet",
+  "AUTH": {
+    "ENTER_YOUR_PASSWORD": "Lütfen şifrenizi giriniz",
+    "PASSWORD": "Şifre",
+    "FORGOT_PASSWORD": "Şifremi unuttum",
+    "FORGOT_PASSWORD_DESCRIPTIONS": "Katılırken kullandığınız e-posta adresini girin ve size şifrenizi sıfırlamak için talimatları gönderin.",
+    "SIGN_IN": "Giriş",
+    "TOO_LONG": "Çok uzun",
+    "TOO_SHORT": "Çok kısa",
+    "INVALID_EMAIL": "Geçersiz mail adresi",
+    "REMEMBER_ME": "Beni hatırla",
+    "LOGOUT": "Çıkış",
+    "BOTH_PASSWORD": "Her iki şifrenin de aynı olması gerekiyor",
+    "NEW_PASSWORD": "Yeni şifre",
+    "NEW_PASSWORD_AGAIN": "Yeni şifre tekrar",
+    "VALIDATION_CODE": "Aktivasyon kodu",
+    "LOGIN_DESCRIPTION": "Kolay Gelsin ile geleneksel taşımacılık anlayışını rafa kaldırıyoruz."
   },
-  "dashboard": {
-    "title": "Dashboard",
+  "DASHBOARD": {
+    "TITLE": "Dashboard",
     "teslimatPerformansRaporu": "Teslimat Performans Raporu",
     "teslimEdilememisGönderilerRaporu": "Teslim Edilememiş Gönderiler Raporu",
     "teslimEdilmisGönderilerRaporu": "Teslim Edilmiş Gönderiler Raporu",
     "dagitimaCikmayanGonderilerRaporu": "Dağıtıma Çıkmayan Gönderiler Raporu",
     "fizikenGelmeyenGonderiler": "Fiziken Gelmeyen Gönderiler"
   },
-  "home": {
-    "title": "Anasayfa"
+  "HOME": {
+    "TITLE": "Anasayfa"
   },
-  "notifications": {
-    "title": "Notifications"
+  "NOTIFICATIONS": {
+    "TITLE": "Notifications"
   },
-  "profile": {
-    "title": "Profil"
+  "PROFILE": {
+    "TITLE": "Profil"
   },
-  "roles": {
-    "title": "Roller"
+  "ROLES": {
+    "TITLE": "Roller"
   },
-  "shipmentOperations": {
-    "shipmentOperationsSaved": {
-      "title": "Shipment Saved"
-    }
-  }
+  "404_PAGE_DESCRIPTION": "..."
 }

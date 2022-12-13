@@ -1,8 +1,7 @@
-import { TextField, TextPasswordField, UiButton } from '@components/ui';
+import { UiButton, UiTextField, UiTextPasswordField } from '@components/ui';
 import { Form, Formik } from 'formik';
 import { Alert, Button, Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
 const ApproveForgetPassword = ({
@@ -13,14 +12,13 @@ const ApproveForgetPassword = ({
   handleClose?: () => void;
 }) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   const ForgotPasswordSchema = Yup.object().shape({
-    verificationCode: Yup.number().required(t('required')),
-    newPassword: Yup.string().required(t('required')),
+    verificationCode: Yup.number().required(t('REQUIRED')),
+    newPassword: Yup.string().required(t('REQUIRED')),
     newPasswordAgain: Yup.string().when('newPassword', {
       is: (val: any) => val?.length > 0,
-      then: Yup.string().oneOf([Yup.ref('newPassword')], t('auth.both_password')),
+      then: Yup.string().oneOf([Yup.ref('newPassword')], t('AUTH.BOTH_PASSWORD')),
     }),
   });
 
@@ -28,7 +26,7 @@ const ApproveForgetPassword = ({
     <Modal show={showModal}>
       <Alert variant="warning" className="rounded-0">
         <h5>
-          Doğrulama kodunuz, sisteme kayıtlı onaylanmış iletişim bilgileriniz(Email/Gsm) üzerinden
+          Doğrulama kodunuz, sisteme kayıtlı onaylanmış iletişim bilgileriniz (Email/Gsm) üzerinden
           gönderildi.
         </h5>
       </Alert>
@@ -47,34 +45,38 @@ const ApproveForgetPassword = ({
         <Form>
           <Modal.Body className="pt-1 pb-1 ps-3 pe-3">
             <>
-              <TextField
-                label={t('auth.validation_code')}
+              <UiTextField
+                label={t('AUTH.VALIDATION_CODE')}
                 type="number"
                 id="verificationCode"
                 horizontal="true"
                 name="verificationCode"
               />
-              <TextPasswordField
-                label={t('auth.new_password')}
+              <UiTextPasswordField
+                label={t('AUTH.NEW_PASSWORD')}
                 horizontal="true"
                 id="newPassword"
                 name="newPassword"
+                preprendIcon
+                icon="fa-solid fa-key"
               />
-              <TextPasswordField
-                label={t('auth.new_password_again')}
+              <UiTextPasswordField
+                label={t('AUTH.NEW_PASSWORD_AGAIN')}
                 id="newPasswordAgain"
                 horizontal="true"
                 name="newPasswordAgain"
+                preprendIcon
+                icon="fa-solid fa-key"
               />
             </>
           </Modal.Body>
           <Modal.Footer className="border-0">
             <Button variant="outline-primary" className="btn-sm" onClick={handleClose}>
-              {t('close')}
+              {t('CLOSE')}
             </Button>
             <UiButton
               type="submit"
-              text={t('send')}
+              text={t('SEND')}
               icon="fa-solid fa-paper-plane"
               variant="primary"
               className="btn-sm me-0"

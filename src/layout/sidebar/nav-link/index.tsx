@@ -1,9 +1,10 @@
 import './nav-link.scss';
 
-import { openMenu } from '@store/features/appSlice';
+import { menuUpdate, openMenu } from '@store/features/app-slice';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Collapse, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 interface NavLinkMenuType {
@@ -13,78 +14,69 @@ interface NavLinkMenuType {
   isOpen: boolean;
 }
 
-interface Data {
-  menu: Menu;
-}
-interface Menu {
-  title: string;
-  icon: string;
-  selected: boolean;
-  expanded: boolean;
-  order: number;
-}
-
-export const NavLinkMenu = ({
+const NavLinkMenuComponent = ({
   path,
   data: {
-    menu: { title, icon },
+    menu: { title, icon = 'fa-solid fa-file', expanded }, // icon
   },
   children,
   isOpen,
 }: NavLinkMenuType) => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const menuState = useAppSelector((state) => state.app.menuOpen);
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(expanded);
 
   useEffect(() => {
     if (!menuState) setOpen(menuState);
+    setOpen(menuState ? expanded : false);
   }, [menuState]);
 
   return (
-    <li className={`position-relative ${open ? 'parent-selected' : ''}`}>
+    <li data-sidebar={title} className={`position-relative${open ? ' parent-selected' : ''}`}>
       {path !== '' && children.length === 0 ? (
         <NavLink
-          title={title}
-          data-name={title}
+          title={t(title)}
           data-path={path}
           to={path}
           className={(navData) =>
-            'nav-link d-flex justify-content-between' + (navData.isActive ? ' selected' : '')
+            'nav-links d-flex justify-content-between' + (navData.isActive ? ' selected' : '')
           }
         >
           {!menuState ? (
-            <OverlayTrigger placement="right" overlay={<Tooltip>{title}</Tooltip>}>
+            <OverlayTrigger placement="right" overlay={<Tooltip>{t(title)}</Tooltip>}>
               <span className="first">
-                <i className="nav-icons fa-solid fa-envelope"></i>
-                <span className="nav-name">{title}</span>
+                <i className={`nav-icons text-center ${icon}`}></i>
+                <span className="nav-name">{t(title)}</span>
               </span>
             </OverlayTrigger>
           ) : (
             <span className="first">
-              <i className="nav-icons fa-solid fa-envelope"></i>
-              <span className="nav-name">{title}</span>
+              <i className={`nav-icons text-center ${icon}`}></i>
+              <span className="nav-name">{t(title)}</span>
             </span>
           )}
         </NavLink>
       ) : (
         <a
-          className="nav-link c-pointer d-block"
+          className="nav-links c-pointer d-block"
           onClick={() => {
             setOpen(!open);
+            dispatch(menuUpdate({ path, expanded: !open }));
             if (!menuState) dispatch(openMenu());
           }}
         >
           {!menuState ? (
-            <OverlayTrigger placement="right" overlay={<Tooltip>{title}</Tooltip>}>
+            <OverlayTrigger placement="right" overlay={<Tooltip>{t(title)}</Tooltip>}>
               <span className="first">
-                <i className="nav-icons fa-solid fa-envelope"></i>
-                <span className="nav-name">{title}</span>
+                <i className={`nav-icons text-center ${icon}`}></i>
+                <span className="nav-name">{t(title)}</span>
               </span>
             </OverlayTrigger>
           ) : (
             <span className="first">
-              <i className="nav-icons fa-solid fa-envelope"></i>
-              <span className="nav-name">{title}</span>
+              <i className={`nav-icons text-center ${icon}`}></i>
+              <span className="nav-name">{t(title)}</span>
             </span>
           )}
 
@@ -103,10 +95,13 @@ export const NavLinkMenu = ({
       <Collapse in={open}>
         <ul className="sub-menu p-0">
           {children.map((sub: any, index: number) => (
-            <NavLinkMenu key={index} {...sub} />
+            <NavLinkMenuComponent key={index} {...sub} path={`${path}/${sub.path}`} />
           ))}
         </ul>
       </Collapse>
     </li>
   );
 };
+
+const NavLinkMenu = memo(NavLinkMenuComponent);
+export { NavLinkMenu };

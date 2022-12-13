@@ -1,10 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import appReducer from './features/appSlice';
-import loginReducer from './features/auth/loginSlice';
+import appReducer from './features/app-slice';
+import authReducer from './features/auth/auth-slice';
 
 const rootReducer = combineReducers({
   app: appReducer,
-  login: loginReducer,
+  auth: authReducer,
 });
 
 export default rootReducer;

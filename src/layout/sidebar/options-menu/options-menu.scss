@@ -5,6 +5,12 @@
   }
 }
 
+.nav-link {
+  &:hover {
+    color: var(--bs-primary);
+  }
+}
+
 .menu-dropdown-options {
   i {
     top: 2px;

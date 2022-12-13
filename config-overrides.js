@@ -12,5 +12,6 @@ module.exports = override(
     '@views': path.resolve(__dirname, './src/views'),
     '@hooks': path.resolve(__dirname, './src/hooks'),
     '@assets': path.resolve(__dirname, './src/assets'),
+    '@api': path.resolve(__dirname, './src/api'),
   })
 );

@@ -1,81 +1,83 @@
+import Path from '@routers/paths';
+import axios from 'axios';
+import { getEnvVars } from 'environment';
 import { toast } from 'react-toastify';
-import API from '../api';
+
+const controller = new AbortController();
+const win: any = window;
+const storage: any = localStorage;
+
+const { apiUrl } = getEnvVars();
+axios.defaults.baseURL = apiUrl;
 
 export const initAPIInterceptor = (store: any): void => {
-  API.interceptors.request.use(
+  axios.interceptors.request.use(
     async (request: any) => {
-      const { login } = store.getState();
-      if (!request.headers.authorization) {
-        request.headers.authorization = `${login.token_type} ${login.token}`;
-      }
+      const { auth } = store.getState();
+
+      request.signal = controller.signal;
+      request.headers['access-control-allow-methods'] = 'GET, POST, PUT, DELETE';
+      request.headers['access-control-allow-origin'] = '*';
+      request.headers['accept-language'] = 'tr-TR';
 
       if (!request.headers['Content-Type']) {
         request.headers['Content-Type'] = 'application/json';
       }
+
+      if (!request.headers.authorization) {
+        request.headers.authorization = `${auth.token_type} ${auth.access_token}`;
+      }
+
       return request;
     },
-    (error) => new Error(error)
+    (error: any) => {
+      controller.abort();
+      return new Error(error);
+    }
   );
 
-  API.interceptors.response.use(
-    (response: any) => response.data,
-    async (error) => {
-      const errorRes = error.response;
-      if (errorRes) {
-        showError({
-          error: errorRes.data.error || errorRes.statusText || {},
-          status: errorRes.status,
-        });
+  axios.interceptors.response.use(
+    ({ data }: any) => data,
+    async (error: any) => {
+      if (error.code && window.location.pathname !== Path.login) {
+        controller.abort();
+        storage.clear();
+        win.location.href = window.location.origin + Path.login;
+        return;
       }
+      showError({
+        error: error || {},
+      });
 
       return await Promise.reject(error);
     }
   );
 };
 
-const showError = ({ error = {}, status }: any) => {
-  let message = '';
-  let title = '';
+const showError = (err: any) => {
+  const res: any = err.response.error;
+  const message = res.statusText;
+  toast.error(`${message}`);
 
-  if (typeof error === 'string') {
-    message = error;
-  } else if (error.details) {
-    message = error.details;
-    title = error.message;
-  } else if (error.message) {
-    message = error.message;
-  } else {
-    switch (status) {
-      case 401:
-        title = '401';
-        message = '401';
-        break;
-      case 403:
-        title = '403';
-        message = '403';
-        break;
-      case 404:
-        title = '404';
-        message = '404';
-        break;
-      case 500:
-        title = '500';
-        message = '500';
-        break;
-      default:
-        break;
-    }
-  }
+  // switch (status) {
+  //   case 400:
+  //     message = '400';
+  //     break;
+  //   case 401:
+  //     message = '401';
+  //     break;
+  //   case 403:
+  //     message = '403';
+  //     break;
+  //   case 404:
+  //     message = '404';
+  //     break;
+  //   case 500:
+  //     message = '500';
+  //     break;
+  //   default:
+  //     break;
+  // }
 
-  toast.error(`${title} - ${message}`, {
-    position: 'top-right',
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-  });
-
-  return { message, title };
+  return err;
 };

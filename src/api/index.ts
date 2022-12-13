@@ -1,10 +1,13 @@
-import axios from 'axios';
+import Axios from 'axios';
+import { configure } from 'axios-hooks';
+import LRU from 'lru-cache';
 import { getEnvVars } from '../environment';
 
 const { apiUrl } = getEnvVars();
-const api = axios.create({
+const axios: any = Axios.create({
   baseURL: apiUrl,
   withCredentials: false,
 });
+const cache = new LRU({ max: 10 });
 
-export default api;
+configure({ axios, cache });

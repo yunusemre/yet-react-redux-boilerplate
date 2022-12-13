@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 export interface UiButtonType {
-  type?: 'submit' | 'button' | 'reset' | any;
+  type?: 'submit' | 'button' | 'reset';
   className?: 'w-100' | string;
   icon?: 'fa-solid fa-save' | string;
   text?: 'Button' | string;
@@ -15,7 +15,7 @@ export interface UiButtonType {
 }
 
 const UiButton = ({
-  type,
+  type = 'button',
   className,
   loading = false,
   icon,
@@ -45,7 +45,7 @@ const UiButton = ({
       ) : (
         <>
           {icon && <i className={icon}></i>}
-          {text && <span className="ms-1">{text}</span>}
+          {text && <span className="ms-2">{text}</span>}
         </>
       )}
     </Button>

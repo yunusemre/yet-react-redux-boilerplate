@@ -2,17 +2,19 @@ $sidebarLogoHeight: 70;
 $nav-width: 68px;
 $footerHeight: 88;
 $sidebarFullWidth: 280;
+$sidebarOpenWidth: 266px;
 
 .sidebar {
   position: fixed;
   width: $nav-width;
   top: 0;
   left: 0;
+  bottom: 0;
   transition: var(--transitionTime);
   background-color: var(--body-color);
   border-right: 1px solid var(--navbar-bg);
   height: 100%;
-  z-index: 2;
+  z-index: 100;
 
   .nav-name {
     display: none;
@@ -29,7 +31,7 @@ $sidebarFullWidth: 280;
       .order-list {
         padding: 0 0px 0 7px;
 
-        .nav-link {
+        .nav-links {
           margin-right: 0px;
         }
       }
@@ -38,11 +40,10 @@ $sidebarFullWidth: 280;
 
   @media screen and (max-width: 768px) {
     left: -100px;
-    transition: var(--transitionTime);
 
     &.open {
       left: 0px;
-      position: absolute;
+      position: fixed;
       display: block;
     }
   }
@@ -85,55 +86,59 @@ $sidebarFullWidth: 280;
 
 .sidebar-toggle {
   position: fixed;
-  top: 10px;
+  top: 20px;
   left: 2px;
   padding: 7px;
-  z-index: 3;
+  z-index: 101;
   transition: var(--transitionTime);
 
   i {
+    z-index: 101;
     position: fixed;
     font-size: 10px;
-    top: 16px;
-    left: 61px;
+    top: 26px;
+    left: 68px;
+    font-size: 14px;
+    transition: var(--transitionTime);
   }
 
   &.open {
-    left: 268px;
+    left: $sidebarOpenWidth;
 
     i {
-      left: 276px;
+      left: 280px;
     }
 
     &:after {
       content: '';
-      left: 268px;
+      left: 262px;
     }
   }
 
   &:after {
     content: '';
     position: fixed;
-    width: 23px;
-    height: 23px;
+    width: 34px;
+    height: 34px;
     transform: rotate(45deg);
+    transition: var(--transitionTime);
     border-right: 1px solid var(--navbar-bg);
     border-top: 1px solid var(--navbar-bg);
     background: var(--body-color);
-    border-radius: 0px 6px 0px 6px;
-    left: 56px;
-    top: 10px;
-    z-index: -1;
+    border-radius: 0px 12px 0px 12px;
+    left: 51px;
+    top: 16px;
+    z-index: 99;
   }
 
   @media screen and (max-width: 768px) {
     &:after {
       content: '';
-      left: -10px;
+      left: -100px;
     }
 
     i {
-      left: 2px;
+      left: -100px;
     }
   }
 }

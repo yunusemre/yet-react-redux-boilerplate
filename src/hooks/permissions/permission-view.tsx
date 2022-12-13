@@ -1,4 +1,4 @@
-import { usePermission } from './usePermission';
+import { usePermission } from './use-permission';
 
 const CanView = ({ permission, children }: any) => {
   const policy = usePermission(permission);

@@ -21,3 +21,8 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 React-bootstrap
 BEM
+
+# Düzeltilecekler
+
+- API'ler doğru hata kodu dönmüyor. Hata kodları eklenmiş ama onlarında restfullda kullanılması mantıklı değil. Çünkü restfullda da var.
+- API pathleri kebab-case olmalı ama Pascal Case olarak kullanılmış. Parametrelerde aynı durumda. Onlarında Camel Case olması gerek.

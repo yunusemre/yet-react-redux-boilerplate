@@ -24,7 +24,8 @@
       "@views/*": ["./views/*"],
       "@utils/*": ["./utils/*"],
       "@hooks/*": ["./hooks/*"],
-      "@assets/*": ["./assets/*"]
+      "@assets/*": ["./assets/*"],
+      "@api/*": ["./api/*"]
     }
   },
   "include": ["src"],

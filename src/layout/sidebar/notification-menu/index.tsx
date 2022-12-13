@@ -9,7 +9,7 @@ const NotificationMenuComponent = () => {
     <NavLink
       to={Path.notifications}
       className={(navData) =>
-        'nav-link d-flex justify-content-between mb-0' + (navData.isActive ? ' selected' : '')
+        'nav-links d-flex justify-content-between mb-0' + (navData.isActive ? ' selected' : '')
       }
     >
       <span className="first position-relative">

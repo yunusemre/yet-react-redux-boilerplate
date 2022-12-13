@@ -1,19 +1,18 @@
-import { TextField, UiButton } from '@components/ui';
+import { UiButton, UiTextField } from '@components/ui';
 import Path from '@routers/paths';
 import { Form, Formik } from 'formik';
 import { useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import ApproveForgetPassword from './approve';
 
 const ForgotPasswordPage = () => {
   const { t } = useTranslation();
   const [show, setShow] = useState(false);
-  const navigate = useNavigate();
   const SignupSchema = Yup.object().shape({
-    email: Yup.string().email(t('auth.invalid_email')).required(t('required')),
+    email: Yup.string().email(t('AUTH.INVALID_EMAIL')).required(t('REQUIRED')),
   });
 
   return (
@@ -38,28 +37,30 @@ const ForgotPasswordPage = () => {
               <Form>
                 <div className="text-center">
                   <div className="mb-5">
-                    <h1 className="display-5">{t('auth.forgot_password')}</h1>
-                    <p>{t('auth.forgot_password_descriptions')}</p>
+                    <h1 className="display-5">{t('AUTH.FORGOT_PASSWORD')}</h1>
+                    <p>{t('AUTH.FORGOT_PASSWORD_DESCRIPTIONS')}</p>
                   </div>
                 </div>
-                <TextField
-                  label={t('email_address')}
+                <UiTextField
+                  label={t('EMAIL_ADDRESS')}
                   horizontal="true"
                   type="email"
                   id="email"
                   name="email"
+                  preprendIcon
+                  icon="fa-solid fa-at"
                 />
                 <div className="d-grid gap-2">
                   <UiButton
                     type="submit"
-                    text={t('send')}
+                    text={t('SEND')}
                     icon="fa-solid fa-paper-plane"
                     variant="primary"
                     className="w-100"
                   />
                   <div className="text-center">
                     <Link className="btn btn-link btn-xs" to={Path.login}>
-                      <i className="fa-solid fa-angle-left"></i> {t('auth.sign_in')}
+                      <i className="fa-solid fa-angle-left"></i> {t('AUTH.SIGN_IN')}
                     </Link>
                   </div>
                 </div>

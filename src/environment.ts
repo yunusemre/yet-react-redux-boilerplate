@@ -1,6 +1,6 @@
 const ENV: any = {
   development: {
-    apiUrl: 'https://apitest.klyglsn.com',
+    apiUrl: 'http://appdev.ekolkargo.com:81',
   },
   production: {
     apiUrl: '/',

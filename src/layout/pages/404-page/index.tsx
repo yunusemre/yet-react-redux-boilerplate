@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 const Page404 = () => {
+  const { t } = useTranslation();
   return (
     <div className="mt-6">
       <div className="row justify-content-center align-items-sm-center py-sm-10">
@@ -11,9 +13,9 @@ const Page404 = () => {
         </div>
         <div className="col-sm-6 col-lg-4 text-center text-sm-start">
           <h1 className="display-1 mb-0">404</h1>
-          <p className="lead">Sorry, the page youre looking for cannot be found.</p>
+          <p className="lead">{t('404_PAGE_DESCRIPTION')}</p>
           <Link to="/" className="btn btn-primary">
-            Go home
+            {t('HOME.TITLE')}
           </Link>
         </div>
       </div>
