@@ -54,21 +54,7 @@ const LoginPage = () => {
 
   return (
     <Row>
-      <Col
-        lg={7}
-        className="d-none d-lg-flex justify-content-center align-items-center min-vh-lg-100 position-relative px-0"
-      >
-        <div className="w-75 text-center">
-          <img src="/promo-car.png" alt="" height="200" />
-          <div className="mb-5 mt-5">
-            <h2>{t('AUTH.LOGIN_DESCRIPTION')}</h2>
-          </div>
-        </div>
-      </Col>
-      <Col
-        lg={5}
-        className="d-flex justify-content-center align-items-center position-relative bg-light px-0"
-      >
+      <Col className="d-flex justify-content-center align-items-center position-relative px-0">
         <div
           className="w-75 content-space-t-2 content-space-t-lg-2 content-space-b-1"
           style={{ maxWidth: '25rem' }}
