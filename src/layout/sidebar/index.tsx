@@ -27,9 +27,9 @@ const SidebarMenu = () => {
         <Link to="/" className="logo mb-2 pt-2 d-block">
           <span className="c-pointer">
             {menuState ? (
-              <img src="/logo.png" height="50" alt="Kolay gelsin" />
+              <img src="/logo.png" height="50" alt="React Boilerplate" />
             ) : (
-              <img src="/logo-mini.png" height="50" alt="Kolay gelsin" />
+              <img src="/logo.png" height="50" alt="React Boilerplate" />
             )}
           </span>
         </Link>

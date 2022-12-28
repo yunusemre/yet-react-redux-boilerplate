@@ -30,7 +30,7 @@
     "NEW_PASSWORD": "Yeni şifre",
     "NEW_PASSWORD_AGAIN": "Yeni şifre tekrar",
     "VALIDATION_CODE": "Aktivasyon kodu",
-    "LOGIN_DESCRIPTION": "Kolay Gelsin ile geleneksel taşımacılık anlayışını rafa kaldırıyoruz."
+    "LOGIN_DESCRIPTION": "React Boilerplate "
   },
   "DASHBOARD": {
     "TITLE": "Dashboard",

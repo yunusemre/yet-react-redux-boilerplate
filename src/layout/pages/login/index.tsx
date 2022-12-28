@@ -78,7 +78,7 @@ const LoginPage = () => {
               <img
                 className="img-fluid"
                 src="/logo.png"
-                alt="Kolay gelsin"
+                alt="React Boilerplate"
                 style={{ width: '12rem' }}
               />
             </div>

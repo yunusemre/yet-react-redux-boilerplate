@@ -8,12 +8,8 @@ const LoginPage = lazy(() => import('@layout/pages/login'));
 const ForgotPasswordPage = lazy(() => import('@layout/pages/forgot-password'));
 const Page404 = lazy(() => import('@layout/pages/404-page'));
 const ProfilePage = lazy(() => import('@layout/pages/profile'));
-const Roles = lazy(() => import('@layout/pages/roles'));
 const NotificationPage = lazy(() => import('@layout/pages/notifications'));
 const Home = lazy(() => import('@views/home'));
-const ShipmentsShipment = lazy(() => import('@views/shipments/shipment'));
-const ShipmentsTrack = lazy(() => import('@views/shipments/track'));
-const TeamLeader = lazy(() => import('@views/hubs/team-leader'));
 
 const ProjectRouter = (): any => {
   const route: any = useRoutes([
@@ -33,34 +29,8 @@ const ProjectRouter = (): any => {
           element: <ProfilePage />,
         },
         {
-          path: Path.roles,
-          element: <Roles />,
-        },
-        {
           path: Path.notifications,
           element: <NotificationPage />,
-        },
-        {
-          path: 'shipments',
-          children: [
-            {
-              path: 'shipment',
-              element: <ShipmentsShipment />,
-            },
-            {
-              path: 'track',
-              element: <ShipmentsTrack />,
-            },
-          ],
-        },
-        {
-          path: 'hubs',
-          children: [
-            {
-              path: 'team-leader',
-              element: <TeamLeader />,
-            },
-          ],
         },
       ],
     },

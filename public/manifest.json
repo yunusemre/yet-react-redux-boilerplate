@@ -1,6 +1,6 @@
 {
-  "short_name": "kolaygelsin",
-  "name": "Kolay Gelsin",
+  "short_name": "react_boilerplate",
+  "name": "React Boilerplate",
   "icons": [
     {
       "src": "favicon.ico",

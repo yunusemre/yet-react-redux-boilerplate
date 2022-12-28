@@ -24,6 +24,7 @@
     "multiline-ternary": "off",
     "react/display-name": "off",
     "comma-dangle": "off",
+    "@typescript-eslint/comma-dangle": "off",
     "@typescript-eslint/semi": [1, "always"],
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",

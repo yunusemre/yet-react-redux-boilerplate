@@ -18,7 +18,7 @@ const ForgotPasswordPage = () => {
   return (
     <Container className="py-5 py-sm-7">
       <Link to={Path.forgot_password} className="d-flex justify-content-center mb-5">
-        <img height="65" className="zi-2" src="/logo.png" alt="Kolay gelsin" />
+        <img height="65" className="zi-2" src="/logo.png" alt="React Boilerplate" />
       </Link>
 
       <div className="mx-auto max-width-30">

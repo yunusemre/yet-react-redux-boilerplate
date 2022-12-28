@@ -15,7 +15,7 @@ import i18n from './translation/config';
 
 initAPIInterceptor(store);
 
-const container = document.getElementById('kolaygelsin')!;
+const container = document.getElementById('app')!;
 const root = createRoot(container);
 const state = store.getState();
 root.render(

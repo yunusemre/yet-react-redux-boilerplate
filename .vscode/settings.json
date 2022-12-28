@@ -12,10 +12,5 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.eol": "\n",
-  "sonarlint.rules": {
-    "javascript:S1440": {
-      "level": "on"
-    }
-  },
   "eslint.validate": ["javascript", "typescript"]
 }
